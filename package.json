@@ -1,0 +1,40 @@
+{
+  "name": "portfolio-desarrollador",
+  "version": "1.0.0",
+  "description": "Portfolio moderno con animaciones complejas para desarrolladores",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=.",
+    "build": "echo 'Proyecto construido exitosamente'",
+    "deploy:netlify": "netlify deploy --prod --dir=.",
+    "deploy:vercel": "vercel --prod",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "web-developer",
+    "frontend",
+    "javascript",
+    "css",
+    "html",
+    "gsap",
+    "animations"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/portfolio"
+  },
+  "homepage": "https://tu-usuario.github.io/portfolio",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

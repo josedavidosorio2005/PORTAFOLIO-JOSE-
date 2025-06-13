@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José David Osorio Gallego - Portfolio Desarrollador & Ciberseguridad</title>
+    <meta name="description" content="Portfolio de José David Osorio Gallego - Desarrollador especializado en Python, Java y Ciberseguridad. 16 certificaciones de Platzi.">
+    <meta name="keywords" content="José David Osorio Gallego, desarrollador, programador, ciberseguridad, Python, Java, SQL, Platzi">
+    <meta name="author" content="José David Osorio Gallego">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loader animado -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cursor personalizado -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Partículas de fondo -->
+    <div id="particles-js"></div>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-text">Portfolio</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Inicio</a></li>
+            <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+            <li><a href="#certificates" class="nav-link">Certificados</a></li>
+            <li><a href="#projects" class="nav-link">Proyectos</a></li>
+            <li><a href="#skills" class="nav-link">Habilidades</a></li>
+            <li><a href="#contact" class="nav-link">Contacto</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">                <h1 class="hero-title">
+                    <span class="typing-text">Hola, soy</span>
+                    <span class="name-highlight">José David Osorio Gallego</span>
+                </h1>                <p class="hero-subtitle">Desarrollador & Especialista en Ciberseguridad</p>
+                <p class="hero-description">
+                    Especializado en desarrollo con Python, Java y bases de datos, con enfoque en ciberseguridad y protección digital
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">Ver Proyectos</a>
+                    <a href="#contact" class="btn-secondary">Contactar</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <div class="card-glow"></div>
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre Mí</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">                    <p class="about-description">
+                        Soy José David Osorio Gallego, un desarrollador apasionado por la ciberseguridad y la programación. 
+                        Con certificaciones en Python, Java, bases de datos y especialización en ciberseguridad, 
+                        me dedico a crear soluciones tecnológicas seguras y eficientes.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>
+                            <span class="stat-label">Años de Experiencia</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50">0</span>
+                            <span class="stat-label">Proyectos Completados</span>
+                        </div>                        <div class="stat-item">
+                            <span class="stat-number" data-count="16">0</span>
+                            <span class="stat-label">Certificaciones</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="image-overlay"></div>
+                        <img src="https://via.placeholder.com/400x500" alt="Perfil" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Certificados -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certificados y Estudios</h2>
+                <div class="section-line"></div>
+            </div>            <div class="certificates-grid">                <!-- Ciberseguridad Personal -->
+                <div class="certificate-card" data-certificate="ciberseguridad-personal">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/00d9ff/ffffff?text=🔐+CIBERSEGURIDAD+PERSONAL%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Ciberseguridad Personal">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Ciberseguridad Personal</h3>
+                                <p>Platzi - Seguridad Digital</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-ciberseguridad-personal.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ciberseguridad WhatsApp -->
+                <div class="certificate-card" data-certificate="ciberseguridad-whatsapp">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/25d366/ffffff?text=💬+CIBERSEGURIDAD+WHATSAPP%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Ciberseguridad WhatsApp">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Ciberseguridad en WhatsApp</h3>
+                                <p>Platzi - Seguridad en Mensajería</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-ciberseguridad-whatsapp.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Computación Básica -->
+                <div class="certificate-card" data-certificate="computacion-basica">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/98ca3f/ffffff?text=💻+COMPUTACIÓN+BÁSICA%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Computación Básica">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Computación Básica</h3>
+                                <p>Platzi - Fundamentos</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-computacion-basica.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bases de Datos y SQL -->
+                <div class="certificate-card" data-certificate="dbsql">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/ff6b6b/ffffff?text=🗄️+BASES+DE+DATOS+%26+SQL%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Bases de Datos y SQL">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Bases de Datos y SQL</h3>
+                                <p>Platzi - Gestión de Datos</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-dbsql.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estrategias de Inglés -->
+                <div class="certificate-card" data-certificate="estrategias-ingles">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/4ecdc4/ffffff?text=🌍+ESTRATEGIAS+INGLÉS%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Estrategias de Inglés">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Estrategias para Aprender Inglés</h3>
+                                <p>Platzi - Idiomas</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-estrategias-ingles.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seguridad Informática -->
+                <div class="certificate-card" data-certificate="seguridad-informatica">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/fd79a8/ffffff?text=🛡️+SEGURIDAD+INFORMÁTICA%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Guía de Seguridad Informática">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Guía de Seguridad Informática</h3>
+                                <p>Platzi - Ciberseguridad</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-guia-seguridad-informatica.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ingeniería 2017 -->
+                <div class="certificate-card" data-certificate="ingenieria2017">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/6c5ce7/ffffff?text=⚙️+INGENIERÍA+2017%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Ingeniería 2017">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Carrera de Ingeniería 2017</h3>
+                                <p>Platzi - Ingeniería</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-ingenieria2017.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ingeniería Social -->
+                <div class="certificate-card" data-certificate="ingenieria-social">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/e17055/ffffff?text=🎭+INGENIERÍA+SOCIAL%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Ingeniería Social">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Ingeniería Social</h3>
+                                <p>Platzi - Hacking Ético</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-ingenieria-social.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inglés A1 -->
+                <div class="certificate-card" data-certificate="ingles-a1">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/0984e3/ffffff?text=🇺🇸+INGLÉS+A1%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Inglés A1">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Inglés A1 - Principiantes</h3>
+                                <p>Platzi - Idiomas</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-ingles-a1-principiantes.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intro Ciberseguridad Empresas -->
+                <div class="certificate-card" data-certificate="intro-ciberseguridad-empresas">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/74b9ff/ffffff?text=🏢+CIBERSEGURIDAD+EMPRESAS%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Intro Ciberseguridad Empresas">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Intro a Ciberseguridad para Empresas</h3>
+                                <p>Platzi - Seguridad Corporativa</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-intro-ciberseguridad-empresas.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Java Básico -->
+                <div class="certificate-card" data-certificate="java-basico">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/f39c12/ffffff?text=☕+PROGRAMACIÓN+JAVA%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Java Básico">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Java Básico</h3>
+                                <p>Platzi - Programación</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-java-basico.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pensamiento Lógico Estructuras -->
+                <div class="certificate-card" data-certificate="pensamiento-logico-estructuras">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/9b59b6/ffffff?text=🧠+LÓGICA+%26+ESTRUCTURAS%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Pensamiento Lógico Estructuras">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Pensamiento Lógico: Estructuras</h3>
+                                <p>Platzi - Lógica de Programación</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-pensamiento-logico-estructuras.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pensamiento Lógico Lenguajes -->
+                <div class="certificate-card" data-certificate="pensamiento-logico-lenguajes">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/2d3436/ffffff?text=💭+LÓGICA+%26+LENGUAJES%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Pensamiento Lógico Lenguajes">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Pensamiento Lógico: Lenguajes</h3>
+                                <p>Platzi - Fundamentos de Programación</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-pensamiento-logico-lenguajes.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="certificate-card" data-certificate="python">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/3776ab/ffffff?text=🐍+PROGRAMACIÓN+PYTHON%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Python">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Python</h3>
+                                <p>Platzi - Programación</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-python.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python Fundamentos -->
+                <div class="certificate-card" data-certificate="python-fundamentos">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/ffd43b/333333?text=🔧+FUNDAMENTOS+PYTHON%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Python Fundamentos">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Fundamentos de Python</h3>
+                                <p>Platzi - Programación</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-python-fundamentos.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taller Ciberseguridad -->
+                <div class="certificate-card" data-certificate="taller-ciberseguridad">
+                    <div class="certificate-image">
+                        <img src="https://via.placeholder.com/400x300/e84393/ffffff?text=🔬+TALLER+CIBERSEGURIDAD%0A%0AJOSÉ+DAVID+OSORIO+GALLEGO%0A%0APLATZI" alt="Certificado Taller Ciberseguridad">
+                        <div class="certificate-overlay">
+                            <div class="certificate-info">
+                                <h3>Taller de Ciberseguridad</h3>
+                                <p>Platzi - Seguridad Digital</p>
+                                <div class="certificate-buttons">
+                                    <button class="btn-view">Ver Certificado</button>
+                                    <button class="btn-download" data-pdf="diploma-taller-ciberseguridad.pdf">Descargar PDF</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <div class="section-line"></div>
+            </div>            <div class="skills-content">
+                <div class="skill-category">
+                    <h3>Programación</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Java</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">SQL & Bases de Datos</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                        <span class="skill-percent">88%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Pensamiento Lógico</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92"></div>
+                        </div>
+                        <span class="skill-percent">92%</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Ciberseguridad</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Seguridad Personal</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                        <span class="skill-percent">95%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Seguridad Empresarial</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Ingeniería Social</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Auditoría de Seguridad</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="78"></div>
+                        </div>
+                        <span class="skill-percent">78%</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Otros Conocimientos</h3>
+                    <div class="skill-item">
+                        <span class="skill-name">Inglés</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Fundamentos de Computación</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                        <span class="skill-percent">95%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Metodologías de Ingeniería</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="82"></div>
+                        </div>
+                        <span class="skill-percent">82%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proyectos Destacados</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250" alt="Proyecto 1">
+                        <div class="project-overlay">
+                            <div class="project-buttons">
+                                <a href="#" class="btn-demo">Demo</a>
+                                <a href="#" class="btn-code">Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Moderno</h3>
+                        <p>Tienda online completa con React y Node.js</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250" alt="Proyecto 2">
+                        <div class="project-overlay">
+                            <div class="project-buttons">
+                                <a href="#" class="btn-demo">Demo</a>
+                                <a href="#" class="btn-code">Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard Analytics</h3>
+                        <p>Panel de control con gráficos interactivos</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Chart.js</span>
+                            <span>Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250" alt="Proyecto 3">
+                        <div class="project-overlay">
+                            <div class="project-buttons">
+                                <a href="#" class="btn-demo">Demo</a>
+                                <a href="#" class="btn-code">Código</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>App Móvil</h3>
+                        <p>Aplicación híbrida con React Native</p>
+                        <div class="project-tech">
+                            <span>React Native</span>
+                            <span>Redux</span>
+                            <span>API REST</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contacto</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>tu-email@ejemplo.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+1 234 567 890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Tu Ciudad, País</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Tu Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Tu Mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-send">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 José David Osorio Gallego. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para certificados -->
+    <div class="modal" id="certificate-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <img id="modal-certificate" src="" alt="Certificado">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
