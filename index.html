@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Portafolio de JOSE DAVID OSORIO GALLEGO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Precargar la imagen del cursor para que aparezca inmediatamente -->
+    <link rel="preload" href="https://www.kali.org/images/kali-dragon-icon.svg" as="image">
+    <!-- Asegurarse que el cursor siempre esté visible -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        :root {
+            --primary: #4D61FC;
+            --secondary: #FF3366;
+            --dark: #0D1117;
+            --light: #F6F8FA;
+            --success: #2EA043;
+            --text: #E6EDF3;
+            --text-secondary: #8B949E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+        }        /* Cursor personalizado - Solo el dragón de Kali Linux sin fondo */
+        #custom-cursor {
+            position: fixed;
+            width: 35px;
+            height: 35px;
+            pointer-events: none;
+            z-index: 99999; /* Valor extremadamente alto para asegurar que esté por encima de todo */
+            transition: transform 0.07s linear;
+            background-image: url("https://www.kali.org/images/kali-dragon-icon.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 1;
+            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5)); /* Sombra sutil para mejor visibilidad */
+            will-change: transform; /* Optimización para rendimiento */
+            top: 0;
+            left: 0;
+        }
+        
+        /* Ocultar el cursor normal en todos los elementos */
+        body, a, button, input, textarea, select, [role="button"] {
+            cursor: none !important;
+        }
+
+        /* Partículas de fondo */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Header y navegación */
+        header {
+            padding: 2rem 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(5px);
+            background-color: rgba(13, 17, 23, 0.8);
+        }
+
+        header.scrolled {
+            padding: 1rem 10%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .logo::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: -100%;
+            background-color: var(--secondary);
+            transition: left 0.3s ease;
+        }
+
+        .logo:hover::before {
+            left: 0;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Sección de héroe */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .typing {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 1s;
+        }
+
+        .typing span.cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.5rem;
+            background-color: var(--secondary);
+            animation: blink 1s infinite;
+            margin-left: 5px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 1.5s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 2s;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--text-secondary);
+            color: var(--text);
+            background: transparent;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            top: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        /* Sección de habilidades */
+        .section {
+            padding: 6rem 10%;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            height: 4px;
+            width: 50px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .skill-card:hover i {
+            transform: scale(1.2);
+            color: var(--secondary);
+        }
+
+        .skill-card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Sección de proyectos */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0.7;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            background-color: rgba(77, 97, 252, 0.2);
+            color: var(--primary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+        }
+
+        /* Sección de Educación */
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            display: flex;
+            gap: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .education-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            background-color: rgba(77, 97, 252, 0.1);
+            height: 60px;
+            width: 60px;
+            min-width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .education-content {
+            flex: 1;
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .education-institution {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+
+        .education-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .education-card::before {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            left: 0;
+            top: 0;
+        }
+        
+        /* Estilos para la sección de certificaciones de Platzi */
+        .certificate-description {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .certificate-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--primary);
+        }
+        
+        .certificate-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .certificate-badge {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(77, 97, 252, 0.3);
+        }
+        
+        .certificate-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            line-height: 1.4;
+        }
+        
+        .certificate-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .platzi-profile {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .platzi-profile .btn {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #95CA3E, #67AB27);
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .platzi-profile .btn:hover::before {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Sección de contacto */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 500;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(13, 17, 23, 0.9);
+            padding: 2rem 10%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Media queries para responsividad */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 5%;
+            }
+            .hero {
+                padding: 0 5%;
+            }
+            .section {
+                padding: 4rem 5%;
+            }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 11;
+            }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--dark);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.5s ease;
+                z-index: 10;
+            }
+            nav.active {
+                right: 0;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .hamburger span {
+                width: 25px;
+                height: 3px;
+                background-color: var(--text);
+                transition: all 0.3s ease;
+            }
+            .hamburger.active span:first-child {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:last-child {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .typing {
+                font-size: 1.2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Estilos para scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background-color: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cursor personalizado (logo de Linux) -->
+    <div id="custom-cursor"></div>
+
+    <!-- Fondo de partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Cabecera y navegación -->
+    <header>
+        <a href="#" class="logo">JOSE<span style="color: var(--secondary);">DAVID</span></a>        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#education">Educación</a></li>
+                <li><a href="#certificates">Certificaciones</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Sección de Héroe -->
+    <section id="home" class="hero">
+        <div class="hero-content">            <h1>Hola, soy <span>JOSE DAVID OSORIO GALLEGO</span></h1>            <div class="typing">
+                <span id="typed-text">Estudiante de Desarrollo de Software</span>
+                <span class="cursor"></span>
+            </div>
+            <p>Estudiante de Tecnología en Desarrollo de Software con formación complementaria en ciberseguridad, programación en Python y lógica computacional. Me apasiona aprender sobre seguridad informática y desarrollar soluciones tecnológicas eficientes.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">Ver Proyectos <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-outline">Contactame</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Habilidades -->
+    <section id="skills" class="section">        <h2 class="section-title reveal">Mis Habilidades</h2>        <div class="skills-container">
+            <div class="skill-card reveal">
+                <i class="fab fa-python" style="color: #3776AB;"></i>
+                <h3>Python</h3>
+                <p>Conocimientos en lógica de programación y desarrollo con Python</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-shield-alt" style="color: #4D61FC;"></i>
+                <h3>Ciberseguridad</h3>
+                <p>Bases en ciberseguridad y buenas prácticas digitales</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-laptop" style="color: #00B4D8;"></i>
+                <h3>Computación Básica</h3>
+                <p>Dominio de herramientas básicas de computación</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-language" style="color: #FF3366;"></i>
+                <h3>Inglés Básico</h3>
+                <p>Conocimientos básicos del idioma inglés y estrategias de aprendizaje</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fab fa-java" style="color: #f89820;"></i>
+                <h3>Java</h3>
+                <p>Introducción a Java SE y estructuras básicas de programación</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-database" style="color: #F29111;"></i>
+                <h3>SQL</h3>
+                <p>Bases de datos relacionales y lenguaje SQL</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-users" style="color: #4A90E2;"></i>
+                <h3>Trabajo en equipo</h3>
+                <p>Responsabilidad, adaptabilidad y colaboración efectiva</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-tasks" style="color: #E74C3C;"></i>
+                <h3>Organización</h3>
+                <p>Atención al detalle y organización de inventarios</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Educación -->
+    <section id="education" class="section">
+        <h2 class="section-title reveal">Mi Formación Académica</h2>
+        <div class="education-container">            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Tecnología en Desarrollo de Software</h3>
+                    <p class="education-institution">Universidad Digital de Antioquia</p>
+                    <p class="education-period">En curso</p>
+                    <p class="education-description">
+                        Formación profesional en desarrollo de software, programación y fundamentos de ingeniería de software.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Bachiller Académico</h3>
+                    <p class="education-institution">Escuela Normal Superior de Jericó</p>
+                    <p class="education-period">2022</p>
+                    <p class="education-description">
+                        Bachiller académico con profundización en pedagogía.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Certificación en Ciberseguridad Personal</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">Junio 2025</p>
+                    <p class="education-description">
+                        Código de verificación: 1151T2a1-62f8-49f6-babe-8b299abc7149
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fab fa-hackerrank"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Formación en Hacking Ético</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">2023 - 2024</p>
+                    <p class="education-description">
+                        Curso profesional de Hacking Ético, Pentesting y Análisis de Vulnerabilidades.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Carrera de Cybersecurity</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">2023 - 2025</p>
+                    <p class="education-description">
+                        Ruta completa de aprendizaje en ciberseguridad, incluyendo Fundamentos, Seguridad de Redes, Análisis de Vulnerabilidades, y Respuesta a Incidentes.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Bug Bounty y Ethical Hacking</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">2024</p>
+                    <p class="education-description">
+                        Formación especializada en programas de recompensas por detección de errores y metodologías de hacking ético.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Administración de Servidores Linux</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">2023</p>
+                    <p class="education-description">
+                        Especialización en configuración, hardening y administración segura de servidores Linux.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Certificaciones Platzi -->
+    <section id="certificates" class="section">        <h2 class="section-title reveal">Mi Formación Complementaria</h2>
+        <div class="certificate-description reveal">
+            <p>He completado varios cursos en Platzi, enfocados principalmente en desarrollo de software, ciberseguridad e inglés. Además, cuento con certificaciones de otras instituciones como parte de mi formación continua.</p>
+        </div>
+        <div class="certificates-container">
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Ciberseguridad Personal</h3>
+                    <p class="certificate-date">Platzi - Junio 2025</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Introducción a la Ingeniería Social</h3>
+                    <p class="certificate-date">Platzi - Junio 2025, 21 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Basic English Course A1 for Beginners</h3>
+                    <p class="certificate-date">Platzi - Febrero 2025, 7 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Fundamentos de Ingeniería de Software</h3>
+                    <p class="certificate-date">Platzi - Febrero 2025</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Guía para Aprender Seguridad Informática</h3>
+                    <p class="certificate-date">Platzi - Marzo 2025, 7 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Strategies to Learn English Online</h3>
+                    <p class="certificate-date">Platzi - Noviembre 2024, 11 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Base de Datos con SQL</h3>
+                    <p class="certificate-date">Platzi - 058b81e9-12cb-4703-a852-6336ec1683a7</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Computación Básica</h3>
+                    <p class="certificate-date">Platzi - Febrero 2025, 14 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Ciberseguridad: Simulador Práctico en WhatsApp</h3>
+                    <p class="certificate-date">Platzi - Junio 2025, 3 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Python Certification Course Junior Level</h3>
+                    <p class="certificate-date">The Academy of Insight App Limited - Bronze, Diciembre 2024</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Ciberseguridad y Privacidad para Empresas</h3>
+                    <p class="certificate-date">Platzi - Junio 2025, 12 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Taller de Ciberseguridad para Prevenir Ataques</h3>
+                    <p class="certificate-date">Platzi - Febrero 2025, 3 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Introducción a Java SE</h3>
+                    <p class="certificate-date">Platzi - Abril 2024, 15 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones</h3>
+                    <p class="certificate-date">Platzi - Julio 2024, 12 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Pensamiento Lógico: Lenguajes de Programación</h3>
+                    <p class="certificate-date">Platzi - Julio 2024, 12 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Python</h3>
+                    <p class="certificate-date">Platzi - Julio 2024, 36 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Fundamentos de Python</h3>
+                    <p class="certificate-date">Platzi - Febrero 2024, 17 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>OSINT Geolocalización</h3>
+                    <p class="certificate-date">Artistcode.net / CertiProf - Junio 2025, 12 horas</p>
+                </div>
+            </div>
+            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Implementación y Optimización de Máquinas Virtuales</h3>
+                    <p class="certificate-date">Artistcode.net / CertiProf - Marzo 2025</p>
+                </div>
+            </div>
+        </div>
+        <div class="platzi-profile reveal">
+            <a href="#" class="btn btn-primary">Ver perfil completo en Platzi <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </section>
+
+    <!-- Sección de Certificaciones y Proyectos -->
+    <section id="projects" class="section">        <h2 class="section-title reveal">Mis Certificaciones Principales</h2>
+        <div class="projects-container">
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación Ciberseguridad">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Certificación en Implementación y Optimización de Máquinas Virtuales</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">CertiPro Partner</span>
+                        <span class="tech-tag">Ciberseguridad</span>
+                        <span class="tech-tag">Artisticode.net</span>
+                    </div>
+                    <p>Implementación y optimización de máquinas virtuales para profesionales de IT. Certificado emitido el 6 de marzo de 2025.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación OSINT">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Certificación en OSINT Geolocalización</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">CertiPro Partner</span>
+                        <span class="tech-tag">OSINT</span>
+                        <span class="tech-tag">12 horas académicas</span>
+                    </div>
+                    <p>Curso avanzado en técnicas de geolocalización con OSINT (Open Source Intelligence). Certificado emitido el 10 de junio de 2025.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación Python">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Python Certification Course Junior Level</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">The Academy of Insight App Limited</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Bronze Level</span>
+                    </div>
+                    <p>Certificación de nivel junior en Python que valida conocimientos fundamentales en programación. Diciembre 2024.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación Ciberseguridad Personal">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Certificación en Ciberseguridad Personal</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Platzi</span>
+                        <span class="tech-tag">Ciberseguridad</span>
+                        <span class="tech-tag">Junio 2025</span>
+                    </div>
+                    <p>Formación en prácticas de seguridad personal y protección de la información digital. Código de verificación: 1151T2a1-62f8-49f6-babe-8b299abc7149.</p>
+                    <div class="project-links">
+                        <a href="https://platzi.com/p/jose.osoriog/curso/10928-course/diploma/detalle/" target="_blank" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contact" class="section">
+        <h2 class="section-title reveal">Contáctame</h2>
+        <div class="contact-container">
+            <div class="contact-form reveal">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Tu Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Asunto" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Tu Mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+            </div>
+            <div class="contact-info reveal">                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Ubicación</h3>
+                        <p>Jericó, Antioquia, Colombia</p>
+                    </div>
+                </div>                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>jose.osoriog@est.iudigital.edu.co</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-id-card"></i>
+                    <div>
+                        <h3>C.C.</h3>
+                        <p>1037856337</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-birthday-cake"></i>
+                    <div>
+                        <h3>Fecha de nacimiento</h3>
+                        <p>9 de octubre de 2005</p>
+                    </div>
+                </div><div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>Teléfono</h3>
+                        <p>+57 350 607 2725</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 JOSE DAVID OSORIO GALLEGO. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Inicialización de Particles.js para el fondo
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#4D61FC"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#4D61FC",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });        // Efecto de typing
+        const typedTexts = ["Estudiante de Desarrollo de Software", "Aprendiz de Ciberseguridad", "Programador Python", "Entusiasta de la Tecnología", "Desarrollador en Formación"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100; // Velocidad de escritura
+        const erasingSpeed = 50; // Velocidad de borrado
+        const typedElement = document.getElementById("typed-text");
+
+        function typeEffect() {
+            const currentText = typedTexts[textIndex];
+            
+            if (isDeleting) {
+                typedElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Si terminamos de escribir
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500); // Pausa después de escribir
+            } 
+            // Si terminamos de borrar
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typedTexts.length; // Siguiente texto
+                setTimeout(typeEffect, 500); // Pausa después de borrar
+            } 
+            // Continuar escribiendo o borrando
+            else {
+                setTimeout(typeEffect, isDeleting ? erasingSpeed : typingSpeed);
+            }
+        }
+
+        // Iniciar el efecto de typing después de cargar la página
+        window.addEventListener("load", () => {
+            setTimeout(typeEffect, 1000);
+        });        // Cursor personalizado (dragón de Kali Linux sin fondo)
+        const cursor = document.getElementById("custom-cursor");
+        
+        // Asegurar que el cursor siempre esté visible y siga el puntero del ratón sin retraso
+        document.addEventListener("mousemove", (e) => {
+            requestAnimationFrame(() => {
+                // Ajuste para centrar el dragón en el puntero
+                cursor.style.top = (e.clientY - 15) + "px";
+                cursor.style.left = (e.clientX - 15) + "px";
+            });
+        });
+        
+        // Hacer que el cursor esté disponible incluso al inicio de la carga de la página
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mostrar el cursor en el centro de la pantalla inicialmente
+            cursor.style.top = (window.innerHeight / 2) + "px";
+            cursor.style.left = (window.innerWidth / 2) + "px";
+        });
+        
+        // Asegurar que el cursor permanece visible en toda la página incluso al hacer clic
+        document.addEventListener("mousedown", () => {
+            cursor.style.transform = "scale(0.9)";
+        });
+        
+        document.addEventListener("mouseup", () => {
+            cursor.style.transform = "scale(1)";
+        });
+
+        // Efecto de scroll en el header
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 100) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+            // Animación de elementos al hacer scroll
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add("active");
+                }
+            });
+        });
+
+        // Menú hamburguesa para móviles
+        const hamburger = document.querySelector(".hamburger");
+        const nav = document.querySelector("nav");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            nav.classList.toggle("active");
+        });
+
+        // Cerrar el menú cuando se hace clic en un enlace
+        document.querySelectorAll("nav ul li a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                nav.classList.remove("active");
+            });
+        });
+
+        // Desplazamiento suave al hacer clic en enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
