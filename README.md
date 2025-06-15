@@ -28,3 +28,20 @@ Este es mi portafolio profesional que muestra mi formación, habilidades y certi
 
 Puedes visitar mi portafolio en vivo en la siguiente URL:
 [https://josedavidosorio2005.github.io/PORTAFOLIO-JOSE-/](https://josedavidosorio2005.github.io/PORTAFOLIO-JOSE-/)
+
+## Información sobre el alojamiento
+
+Este portafolio está alojado en GitHub Pages, que ofrece las siguientes ventajas:
+
+- **Alojamiento gratuito por tiempo ilimitado**
+- Actualización automática cuando actualizas el repositorio
+- Dominio gratuito (subdominio de github.io)
+- 100 GB de ancho de banda mensual
+- 1 GB de almacenamiento total
+
+### Limitaciones
+- Solo soporta sitios web estáticos (HTML, CSS, JavaScript)
+- No soporta procesamiento del lado del servidor (PHP, Node.js, etc.)
+- Exposición pública del código fuente (al ser un repositorio público)
+
+Para mantener el sitio activo solo es necesario conservar el repositorio en GitHub.
