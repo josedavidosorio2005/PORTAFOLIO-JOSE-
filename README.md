@@ -21,4 +21,10 @@ Este es mi portafolio profesional que muestra mi formación, habilidades y certi
 
 ## Versiones
 
+- v1.7 - Mejora en la sección de certificados con iconos y efectos de hover avanzados
 - v1.1 - Versión inicial con información personal completa y animaciones avanzadas
+
+## Visitar el portafolio
+
+Puedes visitar mi portafolio en vivo en la siguiente URL:
+[https://josedavidosorio2005.github.io/PORTAFOLIO-JOSE-/](https://josedavidosorio2005.github.io/PORTAFOLIO-JOSE-/)
