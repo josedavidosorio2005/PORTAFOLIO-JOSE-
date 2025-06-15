@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Portafolio de JOSE DAVID OSORIO GALLEGO</title>
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https://*.unsplash.com https://www.kali.org https://*.githubusercontent.com https://upload.wikimedia.org; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://api.github.com;">
+    <meta name="description" content="Portafolio profesional de Jose David Osorio Gallego, estudiante de Tecnología en Desarrollo de Software y aprendiz de ciberseguridad">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <title>Portafolio de JOSE DAVID OSORIO GALLEGO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -603,21 +606,21 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
-        
-        .certificate-card {
+          .certificate-card {
             background-color: rgba(255, 255, 255, 0.03);
             border-radius: 10px;
             padding: 1.5rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
             height: 100%;
+            cursor: pointer;
         }
         
         .certificate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
             background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--primary);
         }
@@ -627,11 +630,9 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-        }
-        
-        .certificate-badge {
-            width: 60px;
-            height: 60px;
+        }        .certificate-badge {
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
@@ -639,8 +640,34 @@
             align-items: center;
             margin-bottom: 1.5rem;
             color: white;
-            font-size: 1.5rem;
+            font-size: 2rem;
             box-shadow: 0 5px 15px rgba(77, 97, 252, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .certificate-card:hover .certificate-badge {
+            transform: translateY(-10px) scale(1.15);
+            box-shadow: 0 15px 25px rgba(77, 97, 252, 0.4);
+        }
+          .certificate-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            margin-top: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: left;
+            transform: translateY(20px);
+        }
+        
+        .certificate-card:hover .certificate-details {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 1rem;
+            transform: translateY(0);
         }
         
         .certificate-card h3 {
@@ -699,11 +726,36 @@
             color: var(--text);
             font-size: 1rem;
             transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
+        }        .form-control:focus {
             outline: none;
             box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        .error-message {
+            color: #ff5252;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+        
+        .form-status {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .form-status.success {
+            background-color: rgba(46, 160, 67, 0.2);
+            color: var(--success);
+            display: block;
+        }
+        
+        .form-status.error {
+            background-color: rgba(255, 82, 82, 0.2);
+            color: #ff5252;
+            display: block;
         }
 
         textarea.form-control {
@@ -739,11 +791,118 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
-
-        .contact-item i {
+        }        .contact-item i {
             font-size: 1.5rem;
             color: var(--primary);
+        }
+          .whatsapp-link {
+            color: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-link:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+        
+        .whatsapp-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .whatsapp-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .whatsapp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .whatsapp-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 5px 15px rgba(37, 211, 102, 0.3));
+        }
+        
+        .whatsapp-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .whatsapp-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #1fbd59;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-button i {
+            font-size: 1.3rem;
+        }
+          .whatsapp-info {
+            margin-top: 1.5rem !important;
+            font-size: 0.9rem !important;
+            opacity: 0.7;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+        }
+        
+        .whatsapp-button.pulse {
+            animation: pulse 1s ease;
         }
 
         /* Footer */
@@ -1097,176 +1256,321 @@
         <div class="certificate-description reveal">
             <p>He completado varios cursos en Platzi, enfocados principalmente en desarrollo de software, ciberseguridad e inglés. Además, cuento con certificaciones de otras instituciones como parte de mi formación continua.</p>
         </div>
-        <div class="certificates-container">
-            <div class="certificate-card reveal">
+        <div class="certificates-container">            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Ciberseguridad Personal</h3>
                     <p class="certificate-date">Platzi - Junio 2025</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Protección de datos personales</li>
+                            <li>Gestión de contraseñas seguras</li>
+                            <li>Prevención de phishing y malware</li>
+                            <li>Configuración de privacidad en redes sociales</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-user-secret"></i>
                     </div>
                     <h3>Introducción a la Ingeniería Social</h3>
                     <p class="certificate-date">Platzi - Junio 2025, 21 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Técnicas de manipulación psicológica</li>
+                            <li>Reconocimiento de ataques de ingeniería social</li>
+                            <li>Pretexting y suplantación de identidad</li>
+                            <li>Medidas preventivas contra manipulación</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-language"></i>
                     </div>
                     <h3>Basic English Course A1 for Beginners</h3>
                     <p class="certificate-date">Platzi - Febrero 2025, 7 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Vocabulario básico cotidiano</li>
+                            <li>Expresiones comunes y saludos</li>
+                            <li>Gramática elemental (presente simple)</li>
+                            <li>Comprensión auditiva fundamental</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-cogs"></i>
                     </div>
                     <h3>Fundamentos de Ingeniería de Software</h3>
                     <p class="certificate-date">Platzi - Febrero 2025</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Ciclo de vida del desarrollo de software</li>
+                            <li>Metodologías ágiles vs. tradicionales</li>
+                            <li>Fundamentos de diseño y arquitectura</li>
+                            <li>Principios de calidad y testing</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-lock"></i>
                     </div>
                     <h3>Guía para Aprender Seguridad Informática</h3>
                     <p class="certificate-date">Platzi - Marzo 2025, 7 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Fundamentos de criptografía</li>
+                            <li>Análisis de vulnerabilidades comunes</li>
+                            <li>Seguridad en redes y sistemas</li>
+                            <li>Prevención de intrusiones y ataques</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3>Strategies to Learn English Online</h3>
                     <p class="certificate-date">Platzi - Noviembre 2024, 11 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Métodos efectivos de autoaprendizaje</li>
+                            <li>Recursos digitales para aprendizaje de idiomas</li>
+                            <li>Técnicas de inmersión lingüística online</li>
+                            <li>Hábitos para práctica constante</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-database"></i>
                     </div>
                     <h3>Base de Datos con SQL</h3>
                     <p class="certificate-date">Platzi - 058b81e9-12cb-4703-a852-6336ec1683a7</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Diseño y normalización de bases de datos</li>
+                            <li>Consultas SQL avanzadas (JOIN, subconsultas)</li>
+                            <li>Gestión de índices y optimización</li>
+                            <li>Transacciones y control de concurrencia</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-desktop"></i>
                     </div>
                     <h3>Computación Básica</h3>
                     <p class="certificate-date">Platzi - Febrero 2025, 14 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Arquitectura básica de computadoras</li>
+                            <li>Sistemas operativos y su funcionamiento</li>
+                            <li>Administración de archivos y directorios</li>
+                            <li>Mantenimiento preventivo de hardware</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fab fa-whatsapp"></i>
                     </div>
                     <h3>Ciberseguridad: Simulador Práctico en WhatsApp</h3>
                     <p class="certificate-date">Platzi - Junio 2025, 3 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Detección de estafas en mensajería</li>
+                            <li>Identificación de perfiles falsos</li>
+                            <li>Protección de información sensible</li>
+                            <li>Configuración avanzada de privacidad</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fab fa-python"></i>
                     </div>
                     <h3>Python Certification Course Junior Level</h3>
                     <p class="certificate-date">The Academy of Insight App Limited - Bronze, Diciembre 2024</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Sintaxis básica y tipos de datos</li>
+                            <li>Estructuras de control y funciones</li>
+                            <li>Manipulación de archivos</li>
+                            <li>Introducción a bibliotecas científicas</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-shield-virus"></i>
                     </div>
                     <h3>Ciberseguridad y Privacidad para Empresas</h3>
                     <p class="certificate-date">Platzi - Junio 2025, 12 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Evaluación de riesgos empresariales</li>
+                            <li>Protección de datos corporativos</li>
+                            <li>Implementación de políticas de seguridad</li>
+                            <li>Cumplimiento normativo (GDPR, CCPA)</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
-                <div class="certificate-content">
+            </div><div class="certificate-card reveal">                <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-shield-virus"></i>
                     </div>
                     <h3>Taller de Ciberseguridad para Prevenir Ataques</h3>
                     <p class="certificate-date">Platzi - Febrero 2025, 3 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Identificación de vectores de ataque</li>
+                            <li>Hardening de sistemas operativos</li>
+                            <li>Análisis de tráfico sospechoso</li>
+                            <li>Prácticas de seguridad preventiva</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
-                <div class="certificate-content">
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fab fa-java"></i>
                     </div>
                     <h3>Introducción a Java SE</h3>
                     <p class="certificate-date">Platzi - Abril 2024, 15 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Fundamentos de la programación orientada a objetos</li>
+                            <li>Sintaxis básica y estructuras de control</li>
+                            <li>Manejo de excepciones y colecciones</li>
+                            <li>Desarrollo de aplicaciones simples</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
-                <div class="certificate-content">
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-sitemap"></i>
                     </div>
                     <h3>Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones</h3>
                     <p class="certificate-date">Platzi - Julio 2024, 12 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Estructuras de datos fundamentales</li>
+                            <li>Algoritmos de ordenamiento y búsqueda</li>
+                            <li>Manejo eficiente de memoria</li>
+                            <li>Optimización de funciones</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
-                <div class="certificate-content">
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-code"></i>
                     </div>
                     <h3>Pensamiento Lógico: Lenguajes de Programación</h3>
                     <p class="certificate-date">Platzi - Julio 2024, 12 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Paradigmas de programación</li>
+                            <li>Comparativa entre lenguajes compilados e interpretados</li>
+                            <li>Principios de diseño de lenguajes</li>
+                            <li>Análisis sintáctico y semántico</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
-                <div class="certificate-content">
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fab fa-python"></i>
                     </div>
                     <h3>Python</h3>
                     <p class="certificate-date">Platzi - Julio 2024, 36 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Programación avanzada en Python</li>
+                            <li>Gestión de paquetes y entornos virtuales</li>
+                            <li>Desarrollo de aplicaciones completas</li>
+                            <li>Manejo de APIs y bases de datos</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
-                <div class="certificate-content">
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fab fa-python"></i>
                     </div>
                     <h3>Fundamentos de Python</h3>
                     <p class="certificate-date">Platzi - Febrero 2024, 17 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Sintaxis y estructuras de control</li>
+                            <li>Funciones y módulos básicos</li>
+                            <li>Manipulación de strings y listas</li>
+                            <li>Introducción a programación orientada a objetos</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
-                <div class="certificate-content">
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h3>OSINT Geolocalización</h3>
                     <p class="certificate-date">Artistcode.net / CertiProf - Junio 2025, 12 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Técnicas de OSINT para localización</li>
+                            <li>Análisis de metadatos en imágenes</li>
+                            <li>Herramientas de geolocalización</li>
+                            <li>Investigación digital basada en ubicación</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="certificate-card reveal">
+            </div>            <div class="certificate-card reveal">
                 <div class="certificate-content">
                     <div class="certificate-badge">
-                        <i class="fas fa-award"></i>
+                        <i class="fas fa-server"></i>
                     </div>
                     <h3>Implementación y Optimización de Máquinas Virtuales</h3>
                     <p class="certificate-date">Artistcode.net / CertiProf - Marzo 2025</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Configuración de hipervisores</li>
+                            <li>Asignación óptima de recursos</li>
+                            <li>Técnicas de snapshot y clonación</li>
+                            <li>Seguridad en entornos virtualizados</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1412,24 +1716,16 @@
 
     <!-- Sección de Contacto -->
     <section id="contact" class="section">
-        <h2 class="section-title reveal">Contáctame</h2>
-        <div class="contact-container">
-            <div class="contact-form reveal">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Tu Nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Tu Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Asunto" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" placeholder="Tu Mensaje" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
-                </form>
+        <h2 class="section-title reveal">Contáctame</h2>        <div class="contact-container">            <div class="whatsapp-contact reveal">
+                <div class="whatsapp-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="whatsapp-logo">
+                    <h3>¿Tienes un proyecto en mente?</h3>
+                    <p>¡Contáctame directamente por WhatsApp para discutir tus ideas!</p>
+                    <a href="https://wa.me/573506072725" target="_blank" rel="noopener noreferrer" class="whatsapp-button">
+                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                    </a>
+                    <p class="whatsapp-info">Disponible de Lunes a Viernes, 8am - 6pm</p>
+                </div>
             </div>
             <div class="contact-info reveal">                <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
@@ -1442,6 +1738,13 @@
                     <div>
                         <h3>Email</h3>
                         <p>jose.osoriog@est.iudigital.edu.co</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>Teléfono</h3>
+                        <p><a href="tel:+573506072725">+57 350 607 2725</a></p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -1780,9 +2083,57 @@
                 rect.bottom >= 0
             );
         }
-        
-        // Cargar proyectos al cargar la página
+          // Cargar proyectos al cargar la página
         window.addEventListener('load', fetchGitHubProjects);
+          // Funcionalidad mejorada para la sección de contacto de WhatsApp
+        document.addEventListener('DOMContentLoaded', function() {
+            // Añadir animación al botón de WhatsApp
+            const whatsappButton = document.querySelector('.whatsapp-button');
+            if (whatsappButton) {
+                // Agregar un efecto de pulso al botón de WhatsApp
+                setInterval(() => {
+                    whatsappButton.classList.add('pulse');
+                    setTimeout(() => {
+                        whatsappButton.classList.remove('pulse');
+                    }, 1000);
+                }, 3000);
+                
+                // Agregar seguimiento de eventos de clic (en un entorno real podría ser Analytics)
+                whatsappButton.addEventListener('click', function() {
+                    console.log('Contacto por WhatsApp iniciado');
+                    // Aquí podría ir código para tracking de eventos
+                });
+            }
+            
+            // Añadir enlaces directos para contacto telefónico con WhatsApp en la sección de info
+            const phoneLink = document.querySelector('.contact-item a[href^="tel:"]');
+            if (phoneLink) {
+                const phoneNumber = phoneLink.getAttribute('href').replace('tel:', '');
+                const whatsappLink = document.createElement('a');
+                whatsappLink.href = `https://wa.me/${phoneNumber.replace(/\s+/g, '')}`;
+                whatsappLink.target = '_blank';
+                whatsappLink.rel = 'noopener noreferrer';
+                whatsappLink.className = 'whatsapp-link';
+                whatsappLink.innerHTML = '<i class="fab fa-whatsapp"></i> Contactar por WhatsApp';
+                
+                const contactInfo = document.querySelector('.contact-info');
+                if (contactInfo) {
+                    const whatsappContainer = document.createElement('div');
+                    whatsappContainer.className = 'contact-item reveal';
+                    whatsappContainer.innerHTML = `
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <div>
+                                ${whatsappLink.outerHTML}
+                            </div>
+                        </div>
+                    `;
+                    
+                    contactInfo.appendChild(whatsappContainer);
+                }
+            }
+        });
     </script>
 </body>
 </html>
