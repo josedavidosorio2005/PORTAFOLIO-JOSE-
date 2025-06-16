@@ -35,14 +35,38 @@
             --success: #2EA043;
             --text: #E6EDF3;
             --text-secondary: #8B949E;
-        }
-
-        * {
+        }        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-        }        body {
+            cursor: none; /* Oculta el cursor nativo para mostrar el personalizado */
+        }
+        
+        /* Cursor personalizado - Logo Python */
+        #custom-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.07s linear;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 4px rgba(72, 138, 188, 0.6));
+            will-change: transform;
+            top: 0;
+            left: 0;
+        }
+        
+        /* Asegurar que el cursor sea visible en enlaces y botones */
+        a:hover ~ #custom-cursor, button:hover ~ #custom-cursor {
+            transform: scale(1.2);
+        }
+        
+        body {
             background-color: var(--dark);
             color: var(--text);
             overflow-x: hidden;
@@ -1139,7 +1163,11 @@
         }
     </style>
 </head>
-<body>    <!-- Fondo de partículas -->
+<body>
+    <!-- Cursor personalizado (Python) -->
+    <div id="custom-cursor"></div>
+    
+    <!-- Fondo de partículas -->
     <div id="particles-js"></div>
 
     <!-- Cabecera y navegación -->
@@ -2175,10 +2203,51 @@
                 rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
                 rect.bottom >= 0
             );
-        }
-          // Cargar proyectos al cargar la página
+        }        // Cargar proyectos al cargar la página
         window.addEventListener('load', fetchGitHubProjects);
-          // Funcionalidad mejorada para la sección de contacto de WhatsApp
+        
+        // Implementación del cursor personalizado de Python
+        const cursor = document.getElementById("custom-cursor");
+        
+        // Seguimiento del mouse con el cursor personalizado
+        document.addEventListener("mousemove", (e) => {
+            requestAnimationFrame(() => {
+                // Ajuste para centrar el logo de Python en el puntero
+                cursor.style.top = (e.clientY - 20) + "px";
+                cursor.style.left = (e.clientX - 20) + "px";
+            });
+        });
+        
+        // Hacer que el cursor esté disponible desde el inicio
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mostrar el cursor en el centro inicialmente
+            cursor.style.top = (window.innerHeight / 2) + "px";
+            cursor.style.left = (window.innerWidth / 2) + "px";
+            
+            // Efectos especiales para el cursor al pasar por encima de elementos interactivos
+            const interactiveElements = document.querySelectorAll('a, button, input[type="submit"], .certificate-card');
+            
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(1.2) rotate(10deg)';
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+        });
+        
+        // Efectos al hacer clic
+        document.addEventListener("mousedown", () => {
+            cursor.style.transform = "scale(0.9)";
+        });
+        
+        document.addEventListener("mouseup", () => {
+            cursor.style.transform = "scale(1)";
+        });
+        
+        // Funcionalidad mejorada para la sección de contacto de WhatsApp
         document.addEventListener('DOMContentLoaded', function() {
             // Añadir animación al botón de WhatsApp
             const whatsappButton = document.querySelector('.whatsapp-button');
