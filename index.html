@@ -30,29 +30,11 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-        }
-
-        body {
+        }        body {
             background-color: var(--dark);
             color: var(--text);
             overflow-x: hidden;
             position: relative;
-        }        /* Cursor personalizado - Solo el dragón de Kali Linux sin fondo */
-        #custom-cursor {
-            position: fixed;
-            width: 35px;
-            height: 35px;
-            pointer-events: none;
-            z-index: 99999; /* Valor extremadamente alto para asegurar que esté por encima de todo */
-            transition: transform 0.07s linear;
-            background-image: url("https://www.kali.org/images/kali-dragon-icon.svg");
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: 1;
-            filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5)); /* Sombra sutil para mejor visibilidad */
-            will-change: transform; /* Optimización para rendimiento */
-            top: 0;
-            left: 0;
         }
         
         /* Ocultar el cursor normal en todos los elementos */
@@ -499,7 +481,7 @@
             margin-right: 0.5rem;
         }
         
-        .repo-stas {
+       .repo-stas {
             display: flex;
             gap: 1rem;
             margin-top: 0.5rem;
@@ -508,7 +490,8 @@
         .repo-stat {
             display: flex;
             align-items: center;
-            color: var(--text-secondary);    ont-size: 0.85rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
         }
         
         .repo-stat i {
@@ -1144,11 +1127,7 @@
         }
     </style>
 </head>
-<body>
-    <!-- Cursor personalizado (logo de Linux) -->
-    <div id="custom-cursor"></div>
-
-    <!-- Fondo de partículas -->
+<body>    <!-- Fondo de partículas -->
     <div id="particles-js"></div>
 
     <!-- Cabecera y navegación -->
@@ -1994,34 +1973,7 @@
 
         // Iniciar el efecto de typing después de cargar la página
         window.addEventListener("load", () => {
-            setTimeout(typeEffect, 1000);
-        });        // Cursor personalizado (dragón de Kali Linux sin fondo)
-        const cursor = document.getElementById("custom-cursor");
-        
-        // Asegurar que el cursor siempre esté visible y siga el puntero del ratón sin retraso
-        document.addEventListener("mousemove", (e) => {
-            requestAnimationFrame(() => {
-                // Ajuste para centrar el dragón en el puntero
-                cursor.style.top = (e.clientY - 15) + "px";
-                cursor.style.left = (e.clientX - 15) + "px";
-            });
-        });
-        
-        // Hacer que el cursor esté disponible incluso al inicio de la carga de la página
-        document.addEventListener("DOMContentLoaded", () => {
-            // Mostrar el cursor en el centro de la pantalla inicialmente
-            cursor.style.top = (window.innerHeight / 2) + "px";
-            cursor.style.left = (window.innerWidth / 2) + "px";
-        });
-        
-        // Asegurar que el cursor permanece visible en toda la página incluso al hacer clic
-        document.addEventListener("mousedown", () => {
-            cursor.style.transform = "scale(0.9)";
-        });
-        
-        document.addEventListener("mouseup", () => {
-            cursor.style.transform = "scale(1)";
-        });
+            setTimeout(typeEffect, 1000);        });
 
         // Efecto de scroll en el header
         window.addEventListener("scroll", () => {
