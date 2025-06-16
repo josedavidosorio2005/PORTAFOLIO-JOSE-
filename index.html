@@ -499,7 +499,7 @@
             margin-right: 0.5rem;
         }
         
-        .repo-stats {
+        .repo-stas {
             display: flex;
             gap: 1rem;
             margin-top: 0.5rem;
@@ -508,8 +508,7 @@
         .repo-stat {
             display: flex;
             align-items: center;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
+            color: var(--text-secondary);    ont-size: 0.85rem;
         }
         
         .repo-stat i {
@@ -697,8 +696,90 @@
         
         .platzi-profile .btn:hover::before {
             background-color: rgba(255, 255, 255, 0.2);
+        }        /* Redes Sociales */
+        .social-icons-container {
+            margin-bottom: 2rem;
         }
-
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 80px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .social-icon:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+            z-index: 0;
+        }
+        
+        .social-icon:hover:before {
+            transform: translateY(0);
+        }
+        
+        .social-icon i {
+            font-size: 24px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-icon span {
+            font-size: 12px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-icon.linkedin {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+        
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #833AB4, #FD1D1D, #FCAF45);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+        
+        .fallback-links {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .fallback-button {
+            color: #4D61FC;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        .fallback-button:hover {
+            color: #FF3366;
+        }
+        
         /* Sección de contacto */
         .contact-container {
             display: grid;
@@ -1726,8 +1807,26 @@
                     </a>
                     <p class="whatsapp-info">Disponible de Lunes a Viernes, 8am - 6pm</p>
                 </div>
-            </div>
-            <div class="contact-info reveal">                <div class="contact-item">
+            </div>            <div class="contact-info reveal">
+                <!-- Redes Sociales -->
+                <div class="social-icons-container">
+                    <h3>Mis Redes Sociales</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/jose-david-osorio-gallego-a07766354" target="_blank" rel="noopener noreferrer" class="social-icon linkedin" onclick="openSocialLink('https://www.linkedin.com/in/jose-david-osorio-gallego-a07766354'); return false;">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://www.instagram.com/joseosorioeur" target="_blank" rel="noopener noreferrer" class="social-icon instagram" onclick="openSocialLink('https://www.instagram.com/joseosorioeur'); return false;">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                    <div class="fallback-links">
+                        <p>Si los enlaces no funcionan, <a href="social-links.html" class="fallback-button">haz clic aquí</a> para acceder directamente.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <h3>Ubicación</h3>
@@ -1960,8 +2059,7 @@
             link.addEventListener("click", () => {
                 hamburger.classList.remove("active");
                 nav.classList.remove("active");
-            });
-        });        // Desplazamiento suave al hacer clic en enlaces de navegación
+            });        });        // Desplazamiento suave al hacer clic en enlaces de navegación
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1969,6 +2067,37 @@
                     behavior: 'smooth'
                 });
             });
+        });
+        
+        // Función para abrir enlaces de redes sociales
+        function openSocialLink(url) {
+            window.open(url, '_blank');
+            return false;
+        }
+        
+        // Inicializar redes sociales
+        function initSocialMedia() {
+            const linkedinLink = document.querySelector('.social-icon.linkedin');
+            const instagramLink = document.querySelector('.social-icon.instagram');
+            
+            if (linkedinLink) {
+                linkedinLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSocialLink('https://www.linkedin.com/in/jose-david-osorio-gallego-a07766354');
+                });
+            }
+            
+            if (instagramLink) {
+                instagramLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSocialLink('https://www.instagram.com/joseosorioeur');
+                });
+            }
+        }
+        
+        // Ejecutar la inicialización cuando se carga el DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            initSocialMedia();
         });
         
         // Cargar proyectos de GitHub
