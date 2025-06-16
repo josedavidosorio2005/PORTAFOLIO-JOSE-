@@ -1,0 +1,14 @@
+theme: jekyll-theme-cayman
+baseurl: "/"
+url: "https://josedavidosorio2005.github.io/PORTAFOLIO-JOSE-/"
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+exclude:
+  - README.md
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
