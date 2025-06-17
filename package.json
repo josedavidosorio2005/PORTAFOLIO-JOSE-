@@ -1,0 +1,25 @@
+{
+  "name": "PORTAFOLIO-JOSE",
+  "version": "1.0.0",
+  "description": "Portfolio web profesional de José David Osorio Gallego",
+  "homepage": "https://josedavidosorio2005.github.io/PORTAFOLIO-JOSE-/",
+  "scripts": {
+    "deploy": "gh-pages -d .",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:vercel": "vercel --prod",
+    "deploy:all": "npm run deploy && npm run deploy:netlify && npm run deploy:vercel"
+  },
+  "dependencies": {
+    "gh-pages": "^6.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.38.1",
+    "vercel": "^33.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josedavidosorio2005/PORTAFOLIO-JOSE-.git"
+  },
+  "author": "José David Osorio Gallego",
+  "license": "MIT"
+}

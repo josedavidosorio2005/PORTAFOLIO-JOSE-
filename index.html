@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- CSP más permisivo para GitHub Pages -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
+    <!-- SEO mejorado para visibilidad -->
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="José David Osorio Gallego">    <meta name="description" content="Portafolio profesional de Jose David Osorio Gallego, estudiante de Tecnología en Desarrollo de Software y aprendiz de ciberseguridad">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <!-- OpenGraph y Twitter cards para previsualización en redes sociales -->
+    <meta property="og:title" content="Portfolio de José David Osorio Gallego">
+    <meta property="og:description" content="Portafolio profesional con certificaciones en ciberseguridad y desarrollo de software">
+    <meta property="og:url" content="https://josedavidosorio2005.github.io/PORTAFOLIO-JOSE-/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Portafolio de JOSE DAVID OSORIO GALLEGO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Precargar la imagen del cursor para que aparezca inmediatamente -->
+    <link rel="preload" href="https://www.kali.org/images/kali-dragon-icon.svg" as="image">
+    <!-- Asegurarse que el cursor siempre esté visible -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        :root {
+            --primary: #4D61FC;
+            --secondary: #FF3366;
+            --dark: #0D1117;
+            --light: #F6F8FA;
+            --success: #2EA043;
+            --text: #E6EDF3;
+            --text-secondary: #8B949E;
+        }        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            cursor: none; /* Oculta el cursor nativo para mostrar el personalizado */
+        }
+        
+        /* Cursor personalizado - Logo Python */
+        #custom-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.07s linear;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 4px rgba(72, 138, 188, 0.6));
+            will-change: transform;
+            top: 0;
+            left: 0;
+        }
+        
+        /* Asegurar que el cursor sea visible en enlaces y botones */
+        a:hover ~ #custom-cursor, button:hover ~ #custom-cursor {
+            transform: scale(1.2);
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Ocultar el cursor normal en todos los elementos */
+        body, a, button, input, textarea, select, [role="button"] {
+            cursor: none !important;
+        }
+
+        /* Partículas de fondo */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Header y navegación */
+        header {
+            padding: 2rem 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(5px);
+            background-color: rgba(13, 17, 23, 0.8);
+        }
+
+        header.scrolled {
+            padding: 1rem 10%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .logo::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: -100%;
+            background-color: var(--secondary);
+            transition: left 0.3s ease;
+        }
+
+        .logo:hover::before {
+            left: 0;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Sección de héroe */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .typing {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 1s;
+        }
+
+        .typing span.cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.5rem;
+            background-color: var(--secondary);
+            animation: blink 1s infinite;
+            margin-left: 5px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 1.5s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards 2s;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--text-secondary);
+            color: var(--text);
+            background: transparent;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            top: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        /* Sección de habilidades */
+        .section {
+            padding: 6rem 10%;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            height: 4px;
+            width: 50px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .skill-card:hover i {
+            transform: scale(1.2);
+            color: var(--secondary);
+        }
+
+        .skill-card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Sección de proyectos */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0.7;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            background-color: rgba(77, 97, 252, 0.2);
+            color: var(--primary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }        .project-link:hover {
+            color: var(--secondary);
+        }
+        
+        /* GitHub Projects Section */
+        .github-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            width: 150px;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .stat-card span {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin: -1rem auto 2rem;
+            max-width: 700px;
+        }
+        
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--secondary);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .text-center {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .language-tag {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 50px;
+            background: rgba(29, 161, 242, 0.2);
+            color: #1da1f2;
+            font-size: 0.7rem;
+            margin-right: 0.5rem;
+        }
+        
+       .repo-stas {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .repo-stat {
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        
+        .repo-stat i {
+            margin-right: 0.25rem;
+        }
+
+        /* Sección de Educación */
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-card {
+            display: flex;
+            gap: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .education-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            background-color: rgba(77, 97, 252, 0.1);
+            height: 60px;
+            width: 60px;
+            min-width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .education-content {
+            flex: 1;
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .education-institution {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+
+        .education-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .education-card::before {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            left: 0;
+            top: 0;
+        }
+        
+        /* Estilos para la sección de certificaciones de Platzi */
+        .certificate-description {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+          .highlight-card {
+            position: relative;
+            border: 2px solid transparent;
+            background-size: 100% 100%;
+            background-image: linear-gradient(45deg, rgba(77, 97, 252, 0.1), rgba(255, 51, 102, 0.1));
+            animation: borderPulse 3s infinite;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+          .highlight-card::before {
+            content: "Nuevo";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        /* Mejora de certificados para mobile */
+        .certificate-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .certificate-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        
+        @keyframes borderPulse {
+            0%, 100% { border-color: rgba(77, 97, 252, 0.7); }
+            50% { border-color: rgba(255, 51, 102, 0.7); }
+        }
+          .certificate-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--primary);
+        }
+        
+        .certificate-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }        .certificate-badge {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(77, 97, 252, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .certificate-card:hover .certificate-badge {
+            transform: translateY(-10px) scale(1.15);
+            box-shadow: 0 15px 25px rgba(77, 97, 252, 0.4);
+        }
+          .certificate-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            margin-top: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: left;
+            transform: translateY(20px);
+        }
+        
+        .certificate-card:hover .certificate-details {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 1rem;
+            transform: translateY(0);
+        }
+        
+        .certificate-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            line-height: 1.4;
+        }
+        
+        .certificate-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .platzi-profile {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .platzi-profile .btn {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #95CA3E, #67AB27);
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .platzi-profile .btn:hover::before {
+            background-color: rgba(255, 255, 255, 0.2);
+        }        /* Redes Sociales */
+        .social-icons-container {
+            margin-bottom: 2rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 80px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .social-icon:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+            z-index: 0;
+        }
+        
+        .social-icon:hover:before {
+            transform: translateY(0);
+        }
+        
+        .social-icon i {
+            font-size: 24px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-icon span {
+            font-size: 12px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-icon.linkedin {
+            background: linear-gradient(45deg, #0077B5, #00A0DC);
+        }
+        
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #833AB4, #FD1D1D, #FCAF45);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+        
+        .fallback-links {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .fallback-button {
+            color: #4D61FC;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+        .fallback-button:hover {
+            color: #FF3366;
+        }
+        
+        /* Sección de contacto */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        .error-message {
+            color: #ff5252;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+        
+        .form-status {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .form-status.success {
+            background-color: rgba(46, 160, 67, 0.2);
+            color: var(--success);
+            display: block;
+        }
+        
+        .form-status.error {
+            background-color: rgba(255, 82, 82, 0.2);
+            color: #ff5252;
+            display: block;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 500;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+          .whatsapp-link {
+            color: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-link:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+        
+        .whatsapp-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .whatsapp-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .whatsapp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .whatsapp-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 5px 15px rgba(37, 211, 102, 0.3));
+        }
+        
+        .whatsapp-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .whatsapp-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #1fbd59;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-button i {
+            font-size: 1.3rem;
+        }
+          .whatsapp-info {
+            margin-top: 1.5rem !important;
+            font-size: 0.9rem !important;
+            opacity: 0.7;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            }
+        }
+        
+        .whatsapp-button.pulse {
+            animation: pulse 1s ease;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(13, 17, 23, 0.9);
+            padding: 2rem 10%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }        /* Media queries para responsividad */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .skills-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .github-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 5%;
+            }
+            .hero {
+                padding: 0 5%;
+            }
+            .section {
+                padding: 4rem 5%;
+            }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 11;
+            }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--dark);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.5s ease;
+                z-index: 10;
+            }
+            nav.active {
+                right: 0;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .hamburger span {
+                width: 25px;
+                height: 3px;
+                background-color: var(--text);
+                transition: all 0.3s ease;
+            }
+            .hamburger.active span:first-child {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:last-child {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .education-card {
+                flex-direction: column;
+            }
+            .education-image {
+                width: 100%;
+                height: 200px;
+                border-radius: 10px 10px 0 0;
+            }
+            .project-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .project-link {
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem;
+                background-color: rgba(77, 97, 252, 0.1);
+                border-radius: 5px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .github-stats {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+            }
+            .project-tech {
+                flex-wrap: wrap;
+            }
+            .tech-tag {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.6rem;
+            }
+            .project-content {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .typing {
+                font-size: 1.2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .section {
+                padding: 3rem 5%;
+            }
+            .project-card {
+                min-height: auto;
+            }
+        }
+        
+        /* Media queries para dispositivos muy pequeños */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .typing {
+                font-size: 1rem;
+            }
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Estilos para scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background-color: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cursor personalizado (Python) -->
+    <div id="custom-cursor"></div>
+    
+    <!-- Fondo de partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Cabecera y navegación -->
+    <header>
+        <a href="#" class="logo">JOSE<span style="color: var(--secondary);">DAVID</span></a>        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#education">Educación</a></li>
+                <li><a href="#certificates">Certificaciones</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Sección de Héroe -->
+    <section id="home" class="hero">
+        <div class="hero-content">            <h1>Hola, soy <span>JOSE DAVID OSORIO GALLEGO</span></h1>            <div class="typing">
+                <span id="typed-text">Estudiante de Desarrollo de Software</span>
+                <span class="cursor"></span>
+            </div>
+            <p>Estudiante de Tecnología en Desarrollo de Software con formación complementaria en ciberseguridad, programación en Python y lógica computacional. Me apasiona aprender sobre seguridad informática y desarrollar soluciones tecnológicas eficientes.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">Ver Proyectos <i class="fas fa-arrow-right"></i></a>
+                <a href="#contact" class="btn btn-outline">Contactame</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Habilidades -->
+    <section id="skills" class="section">        <h2 class="section-title reveal">Mis Habilidades</h2>        <div class="skills-container">
+            <div class="skill-card reveal">
+                <i class="fab fa-python" style="color: #3776AB;"></i>
+                <h3>Python</h3>
+                <p>Conocimientos en lógica de programación y desarrollo con Python</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-shield-alt" style="color: #4D61FC;"></i>
+                <h3>Ciberseguridad</h3>
+                <p>Bases en ciberseguridad y buenas prácticas digitales</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-laptop" style="color: #00B4D8;"></i>
+                <h3>Computación Básica</h3>
+                <p>Dominio de herramientas básicas de computación</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-language" style="color: #FF3366;"></i>
+                <h3>Inglés Básico</h3>
+                <p>Conocimientos básicos del idioma inglés y estrategias de aprendizaje</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fab fa-java" style="color: #f89820;"></i>
+                <h3>Java</h3>
+                <p>Introducción a Java SE y estructuras básicas de programación</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-database" style="color: #F29111;"></i>
+                <h3>SQL</h3>
+                <p>Bases de datos relacionales y lenguaje SQL</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-users" style="color: #4A90E2;"></i>
+                <h3>Trabajo en equipo</h3>
+                <p>Responsabilidad, adaptabilidad y colaboración efectiva</p>
+            </div>
+            <div class="skill-card reveal">
+                <i class="fas fa-tasks" style="color: #E74C3C;"></i>
+                <h3>Organización</h3>
+                <p>Atención al detalle y organización de inventarios</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Educación -->
+    <section id="education" class="section">
+        <h2 class="section-title reveal">Mi Formación Académica</h2>
+        <div class="education-container">            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Tecnología en Desarrollo de Software</h3>
+                    <p class="education-institution">Universidad Digital de Antioquia</p>
+                    <p class="education-period">En curso</p>
+                    <p class="education-description">
+                        Formación profesional en desarrollo de software, programación y fundamentos de ingeniería de software.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-school"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Bachiller Académico</h3>
+                    <p class="education-institution">Escuela Normal Superior de Jericó</p>
+                    <p class="education-period">2022</p>
+                    <p class="education-description">
+                        Bachiller académico con profundización en pedagogía.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Certificación en Ciberseguridad Personal</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">Junio 2025</p>
+                    <p class="education-description">
+                        Código de verificación: 1151T2a1-62f8-49f6-babe-8b299abc7149
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fab fa-hackerrank"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Formación en Hacking Ético</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">2023 - 2024</p>
+                    <p class="education-description">
+                        Curso profesional de Hacking Ético, Pentesting y Análisis de Vulnerabilidades.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Carrera de Cybersecurity</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">2023 - 2025</p>
+                    <p class="education-description">
+                        Ruta completa de aprendizaje en ciberseguridad, incluyendo Fundamentos, Seguridad de Redes, Análisis de Vulnerabilidades, y Respuesta a Incidentes.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Bug Bounty y Ethical Hacking</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">2024</p>
+                    <p class="education-description">
+                        Formación especializada en programas de recompensas por detección de errores y metodologías de hacking ético.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal">
+                <div class="education-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="education-content">
+                    <h3 class="education-title">Administración de Servidores Linux</h3>
+                    <p class="education-institution">Platzi</p>
+                    <p class="education-period">2023</p>
+                    <p class="education-description">
+                        Especialización en configuración, hardening y administración segura de servidores Linux.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Certificaciones Platzi -->
+    <section id="certificates" class="section">        <h2 class="section-title reveal">Mi Formación Complementaria</h2>
+        <div class="certificate-description reveal">
+            <p>He completado varios cursos en Platzi, enfocados principalmente en desarrollo de software, ciberseguridad e inglés. Además, cuento con certificaciones de otras instituciones como parte de mi formación continua.</p>
+        </div>
+        <div class="certificates-container">            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Ciberseguridad Personal</h3>
+                    <p class="certificate-date">Platzi - Junio 2025</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Protección de datos personales</li>
+                            <li>Gestión de contraseñas seguras</li>
+                            <li>Prevención de phishing y malware</li>
+                            <li>Configuración de privacidad en redes sociales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Introducción a la Ingeniería Social</h3>
+                    <p class="certificate-date">Platzi - Junio 2025, 21 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Técnicas de manipulación psicológica</li>
+                            <li>Reconocimiento de ataques de ingeniería social</li>
+                            <li>Pretexting y suplantación de identidad</li>
+                            <li>Medidas preventivas contra manipulación</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Basic English Course A1 for Beginners</h3>
+                    <p class="certificate-date">Platzi - Febrero 2025, 7 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Vocabulario básico cotidiano</li>
+                            <li>Expresiones comunes y saludos</li>
+                            <li>Gramática elemental (presente simple)</li>
+                            <li>Comprensión auditiva fundamental</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Fundamentos de Ingeniería de Software</h3>
+                    <p class="certificate-date">Platzi - Febrero 2025</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Ciclo de vida del desarrollo de software</li>
+                            <li>Metodologías ágiles vs. tradicionales</li>
+                            <li>Fundamentos de diseño y arquitectura</li>
+                            <li>Principios de calidad y testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Guía para Aprender Seguridad Informática</h3>
+                    <p class="certificate-date">Platzi - Marzo 2025, 7 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Fundamentos de criptografía</li>
+                            <li>Análisis de vulnerabilidades comunes</li>
+                            <li>Seguridad en redes y sistemas</li>
+                            <li>Prevención de intrusiones y ataques</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Strategies to Learn English Online</h3>
+                    <p class="certificate-date">Platzi - Noviembre 2024, 11 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Métodos efectivos de autoaprendizaje</li>
+                            <li>Recursos digitales para aprendizaje de idiomas</li>
+                            <li>Técnicas de inmersión lingüística online</li>
+                            <li>Hábitos para práctica constante</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Base de Datos con SQL</h3>
+                    <p class="certificate-date">Platzi - 058b81e9-12cb-4703-a852-6336ec1683a7</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Diseño y normalización de bases de datos</li>
+                            <li>Consultas SQL avanzadas (JOIN, subconsultas)</li>
+                            <li>Gestión de índices y optimización</li>
+                            <li>Transacciones y control de concurrencia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Computación Básica</h3>
+                    <p class="certificate-date">Platzi - Febrero 2025, 14 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Arquitectura básica de computadoras</li>
+                            <li>Sistemas operativos y su funcionamiento</li>
+                            <li>Administración de archivos y directorios</li>
+                            <li>Mantenimiento preventivo de hardware</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Ciberseguridad: Simulador Práctico en WhatsApp</h3>
+                    <p class="certificate-date">Platzi - Junio 2025, 3 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Detección de estafas en mensajería</li>
+                            <li>Identificación de perfiles falsos</li>
+                            <li>Protección de información sensible</li>
+                            <li>Configuración avanzada de privacidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python Certification Course Junior Level</h3>
+                    <p class="certificate-date">The Academy of Insight App Limited - Bronze, Diciembre 2024</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Sintaxis básica y tipos de datos</li>
+                            <li>Estructuras de control y funciones</li>
+                            <li>Manipulación de archivos</li>
+                            <li>Introducción a bibliotecas científicas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Ciberseguridad y Privacidad para Empresas</h3>
+                    <p class="certificate-date">Platzi - Junio 2025, 12 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Evaluación de riesgos empresariales</li>
+                            <li>Protección de datos corporativos</li>
+                            <li>Implementación de políticas de seguridad</li>
+                            <li>Cumplimiento normativo (GDPR, CCPA)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div><div class="certificate-card reveal">                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3>Taller de Ciberseguridad para Prevenir Ataques</h3>
+                    <p class="certificate-date">Platzi - Febrero 2025, 3 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Identificación de vectores de ataque</li>
+                            <li>Hardening de sistemas operativos</li>
+                            <li>Análisis de tráfico sospechoso</li>
+                            <li>Prácticas de seguridad preventiva</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3>Introducción a Java SE</h3>
+                    <p class="certificate-date">Platzi - Abril 2024, 15 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Fundamentos de la programación orientada a objetos</li>
+                            <li>Sintaxis básica y estructuras de control</li>
+                            <li>Manejo de excepciones y colecciones</li>
+                            <li>Desarrollo de aplicaciones simples</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones</h3>
+                    <p class="certificate-date">Platzi - Julio 2024, 12 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Estructuras de datos fundamentales</li>
+                            <li>Algoritmos de ordenamiento y búsqueda</li>
+                            <li>Manejo eficiente de memoria</li>
+                            <li>Optimización de funciones</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Pensamiento Lógico: Lenguajes de Programación</h3>
+                    <p class="certificate-date">Platzi - Julio 2024, 12 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Paradigmas de programación</li>
+                            <li>Comparativa entre lenguajes compilados e interpretados</li>
+                            <li>Principios de diseño de lenguajes</li>
+                            <li>Análisis sintáctico y semántico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Python</h3>
+                    <p class="certificate-date">Platzi - Julio 2024, 36 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Programación avanzada en Python</li>
+                            <li>Gestión de paquetes y entornos virtuales</li>
+                            <li>Desarrollo de aplicaciones completas</li>
+                            <li>Manejo de APIs y bases de datos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Fundamentos de Python</h3>
+                    <p class="certificate-date">Platzi - Febrero 2024, 17 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Sintaxis y estructuras de control</li>
+                            <li>Funciones y módulos básicos</li>
+                            <li>Manipulación de strings y listas</li>
+                            <li>Introducción a programación orientada a objetos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>OSINT Geolocalización</h3>
+                    <p class="certificate-date">Artistcode.net / CertiProf - Junio 2025, 12 horas</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Técnicas de OSINT para localización</li>
+                            <li>Análisis de metadatos en imágenes</li>
+                            <li>Herramientas de geolocalización</li>
+                            <li>Investigación digital basada en ubicación</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            <div class="certificate-card reveal">
+                <div class="certificate-content">
+                    <div class="certificate-badge">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Implementación y Optimización de Máquinas Virtuales</h3>
+                    <p class="certificate-date">Artistcode.net / CertiProf - Marzo 2025</p>
+                    <div class="certificate-details">
+                        <p><strong>Conocimientos adquiridos:</strong></p>
+                        <ul>
+                            <li>Configuración de hipervisores</li>
+                            <li>Asignación óptima de recursos</li>
+                            <li>Técnicas de snapshot y clonación</li>
+                            <li>Seguridad en entornos virtualizados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="platzi-profile reveal">
+            <a href="#" class="btn btn-primary">Ver perfil completo en Platzi <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </section>
+
+    <!-- Sección de Certificaciones y Proyectos -->    <section id="certificates" class="section">
+        <h2 class="section-title reveal">Mis Certificaciones Principales</h2>
+        <div class="projects-container">            <div class="project-card reveal">
+                <div class="project-image certificate-image">
+                    <img src="certificados artistcode/implementacion y optimisacion de maquinas virtuales para profecionales de it .jpg" alt="Certificación Ciberseguridad" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';">
+                    <div class="project-overlay"></div>
+                    <span class="certificate-badge">CertiPro</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Certificación en Implementación y Optimización de Máquinas Virtuales</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">CertiPro Partner</span>
+                        <span class="tech-tag">Ciberseguridad</span>
+                        <span class="tech-tag">Artisticode.net</span>
+                    </div>
+                    <p>Implementación y optimización de máquinas virtuales para profesionales de IT. Certificado emitido el 6 de marzo de 2025.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados artistcode/implementacion y optimisacion de maquinas virtuales para profecionales de it .jpg" target="_blank" class="project-link"><i class="fas fa-file-image"></i> Ver Imagen</a>
+                    </div>
+                </div>
+            </div>            <div class="project-card reveal">
+                <div class="project-image certificate-image">
+                    <img src="certificados artistcode/osint geolocalisacion.png" alt="Certificación OSINT" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';">
+                    <div class="project-overlay"></div>
+                    <span class="certificate-badge">OSINT</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Certificación en OSINT Geolocalización</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">CertiPro Partner</span>
+                        <span class="tech-tag">OSINT</span>
+                        <span class="tech-tag">12 horas académicas</span>
+                    </div>
+                    <p>Curso avanzado en técnicas de geolocalización con OSINT (Open Source Intelligence). Certificado emitido el 10 de junio de 2025.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados artistcode/osint geolocalisacion.png" target="_blank" class="project-link"><i class="fas fa-file-image"></i> Ver Imagen</a>
+                    </div>
+                </div>
+            </div><div class="project-card reveal">
+                <div class="project-image certificate-image">
+                    <img src="certificados/BronzeCertificate.pdf" alt="Certificación Python" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';">
+                    <div class="project-overlay"></div>
+                    <span class="certificate-badge">Bronze Level</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Python Certification Course Junior Level</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">The Academy of Insight App Limited</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Bronze Level</span>
+                    </div>
+                    <p>Certificación de nivel junior en Python que valida conocimientos fundamentales en programación. Diciembre 2024.</p>
+                    <div class="project-links">
+                        <a href="certificados/BronzeCertificate.pdf" target="_blank" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados/BronzeCertificate.pdf" download class="project-link"><i class="fas fa-file-pdf"></i> Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+              <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación Ciberseguridad Personal">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Certificación en Ciberseguridad Personal</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Platzi</span>
+                        <span class="tech-tag">Ciberseguridad</span>
+                        <span class="tech-tag">Junio 2025</span>
+                    </div>
+                    <p>Formación en prácticas de seguridad personal y protección de la información digital. Código de verificación: 1151T2a1-62f8-49f6-babe-8b299abc7149.</p>                    <div class="project-links">
+                        <a href="https://platzi.com/p/jose.osoriog/curso/10928-course/diploma/detalle/" target="_blank" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                    </div>
+                </div>
+            </div>              <div class="project-card reveal highlight-card">
+                <div class="project-image certificate-image">
+                    <img src="certificados platzi/diploma-ciberseguridad-empresas (2).pdf" alt="Ciberseguridad para Gerentes y Directivos" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1591189327912-a6d33a8e5570?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';">
+                    <div class="project-overlay"></div>
+                    <span class="certificate-badge">Platzi Certified</span>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Ciberseguridad para Gerentes y Directivos Técnicos</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Platzi</span>
+                        <span class="tech-tag">Gestión de Riesgos</span>
+                        <span class="tech-tag">Junio 2025</span>
+                    </div>
+                    <p>Enfoque en gestión de riesgos, políticas de seguridad y protección de datos para altos cargos. Certificado especialmente relevante para roles gerenciales con enfoque en estrategias de ciberseguridad y cumplimiento normativo. Código de verificación: b99bdcc6-7d14-41c7-9be5-deb168b9ccte.</p>
+                    <div class="project-links">
+                        <a href="https://platzi.com/p/jose.osoriog/curso/ciberseguridad-gerentes/diploma/detalle/" target="_blank" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados/fundamentos-ciberseguridad-empresarial.pdf" target="_blank" class="project-link"><i class="fas fa-file-pdf"></i> Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card reveal highlight-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Seguridad Informática para Equipos Técnicos">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Seguridad Informática para Equipos Técnicos</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Platzi</span>
+                        <span class="tech-tag">Hardening</span>
+                        <span class="tech-tag">Respuesta a Incidentes</span>
+                    </div>
+                    <p>Habilidades técnicas en hardening, prevención de ataques y respuesta a incidentes. 18 horas de formación práctica con enfoque en protección de infraestructura y mitigación de vulnerabilidades. Código de verificación: 740d6ce4-0729-46a7-a2ea-24ad647421c9.</p>
+                    <div class="project-links">
+                        <a href="https://platzi.com/p/jose.osoriog/curso/seguridad-equipos-tecnicos/diploma/detalle/" target="_blank" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados/introduccion-ethical-hacking.pdf" target="_blank" class="project-link"><i class="fas fa-file-pdf"></i> Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card reveal highlight-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Plan de Seguridad Informática Empresarial">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Crear un Plan de Seguridad Informática Empresarial</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Platzi</span>
+                        <span class="tech-tag">Seguridad Empresarial</span>
+                        <span class="tech-tag">Junio 2025</span>
+                    </div>
+                    <p>Diseño e implementación de planes de seguridad informática alineados con estándares empresariales. Duración: 17 horas teórico-prácticas. Código de verificación: 5397fe34-9bee-4091-8ddb-8bf6df8e2d74.</p>
+                    <div class="project-links">
+                        <a href="https://platzi.com/p/jose.osoriog/curso/seguridad-empresarial/diploma/detalle/" target="_blank" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados/plan-seguridad-empresarial.pdf" target="_blank" class="project-link"><i class="fas fa-file-pdf"></i> Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1589652717406-1c69efaf1ff8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación OSINT para Números Celulares">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Certificación en OSINT para Números Celulares</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">CertiProf Partner</span>
+                        <span class="tech-tag">OSINT</span>
+                        <span class="tech-tag">Junio 2025</span>
+                    </div>
+                    <p>Curso especializado en técnicas de inteligencia de fuentes abiertas (OSINT) aplicadas a números celulares. Duración: 8 horas académicas en laboratorio virtual avanzado de Artistcode.net. Reconocimiento por desempeño excepcional en ciberseguridad. Entidad emisora: Escuela de OSINT (NIT 901297970-2, Colombia).</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                    </div>
+                </div>
+            </div>
+        </div>    </section>
+
+    <!-- Sección de Proyectos de GitHub -->
+    <section id="projects" class="section">
+        <h2 class="section-title reveal">Mis Proyectos en GitHub</h2>
+        <p class="section-subtitle reveal">Proyectos que he desarrollado y compartido en mi cuenta de GitHub</p>
+        
+        <div class="github-stats reveal">
+            <div class="stat-card">
+                <i class="fab fa-github"></i>
+                <span id="repo-count">--</span>
+                <p>Repositorios</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-code-branch"></i>
+                <span id="fork-count">--</span>
+                <p>Forks</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-star"></i>
+                <span id="star-count">--</span>
+                <p>Estrellas</p>
+            </div>
+        </div>
+        
+        <div class="projects-container" id="github-projects">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Cargando proyectos de GitHub...</p>
+            </div>
+        </div>
+        
+        <div class="text-center reveal">
+            <a href="https://github.com/josedavidosorio2005" target="_blank" class="btn btn-primary">
+                <i class="fab fa-github"></i> Ver todos mis repositorios
+            </a>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contact" class="section">
+        <h2 class="section-title reveal">Contáctame</h2>        <div class="contact-container">            <div class="whatsapp-contact reveal">
+                <div class="whatsapp-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="whatsapp-logo">
+                    <h3>¿Tienes un proyecto en mente?</h3>
+                    <p>¡Contáctame directamente por WhatsApp para discutir tus ideas!</p>
+                    <a href="https://wa.me/573506072725" target="_blank" rel="noopener noreferrer" class="whatsapp-button">
+                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                    </a>
+                    <p class="whatsapp-info">Disponible de Lunes a Viernes, 8am - 6pm</p>
+                </div>
+            </div>            <div class="contact-info reveal">
+                <!-- Redes Sociales -->
+                <div class="social-icons-container">
+                    <h3>Mis Redes Sociales</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/jose-david-osorio-gallego-a07766354" target="_blank" rel="noopener noreferrer" class="social-icon linkedin" onclick="openSocialLink('https://www.linkedin.com/in/jose-david-osorio-gallego-a07766354'); return false;">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://www.instagram.com/joseosorioeur" target="_blank" rel="noopener noreferrer" class="social-icon instagram" onclick="openSocialLink('https://www.instagram.com/joseosorioeur'); return false;">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                    <div class="fallback-links">
+                        <p>Si los enlaces no funcionan, <a href="social-links.html" class="fallback-button">haz clic aquí</a> para acceder directamente.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Ubicación</h3>
+                        <p>Jericó, Antioquia, Colombia</p>
+                    </div>
+                </div>                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>jose.osoriog@est.iudigital.edu.co</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>Teléfono</h3>
+                        <p><a href="tel:+573506072725">+57 350 607 2725</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-id-card"></i>
+                    <div>
+                        <h3>C.C.</h3>
+                        <p>1037856337</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-birthday-cake"></i>
+                    <div>
+                        <h3>Fecha de nacimiento</h3>
+                        <p>9 de octubre de 2005</p>
+                    </div>
+                </div><div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>Teléfono</h3>
+                        <p>+57 350 607 2725</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 JOSE DAVID OSORIO GALLEGO. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Inicialización de Particles.js para el fondo
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#4D61FC"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#4D61FC",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });        // Efecto de typing
+        const typedTexts = ["Estudiante de Desarrollo de Software", "Aprendiz de Ciberseguridad", "Programador Python", "Entusiasta de la Tecnología", "Desarrollador en Formación"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100; // Velocidad de escritura
+        const erasingSpeed = 50; // Velocidad de borrado
+        const typedElement = document.getElementById("typed-text");
+
+        function typeEffect() {
+            const currentText = typedTexts[textIndex];
+            
+            if (isDeleting) {
+                typedElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Si terminamos de escribir
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 1500); // Pausa después de escribir
+            } 
+            // Si terminamos de borrar
+            else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typedTexts.length; // Siguiente texto
+                setTimeout(typeEffect, 500); // Pausa después de borrar
+            } 
+            // Continuar escribiendo o borrando
+            else {
+                setTimeout(typeEffect, isDeleting ? erasingSpeed : typingSpeed);
+            }
+        }
+
+        // Iniciar el efecto de typing después de cargar la página
+        window.addEventListener("load", () => {
+            setTimeout(typeEffect, 1000);        });
+
+        // Efecto de scroll en el header
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 100) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+            // Animación de elementos al hacer scroll
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add("active");
+                }
+            });
+        });
+
+        // Menú hamburguesa para móviles
+        const hamburger = document.querySelector(".hamburger");
+        const nav = document.querySelector("nav");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            nav.classList.toggle("active");
+        });
+
+        // Cerrar el menú cuando se hace clic en un enlace
+        document.querySelectorAll("nav ul li a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                nav.classList.remove("active");
+            });        });        // Desplazamiento suave al hacer clic en enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Función para abrir enlaces de redes sociales
+        function openSocialLink(url) {
+            window.open(url, '_blank');
+            return false;
+        }
+        
+        // Inicializar redes sociales
+        function initSocialMedia() {
+            const linkedinLink = document.querySelector('.social-icon.linkedin');
+            const instagramLink = document.querySelector('.social-icon.instagram');
+            
+            if (linkedinLink) {
+                linkedinLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSocialLink('https://www.linkedin.com/in/jose-david-osorio-gallego-a07766354');
+                });
+            }
+            
+            if (instagramLink) {
+                instagramLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openSocialLink('https://www.instagram.com/joseosorioeur');
+                });
+            }
+        }
+        
+        // Ejecutar la inicialización cuando se carga el DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            initSocialMedia();
+        });
+        
+        // Cargar proyectos de GitHub
+        const username = 'josedavidosorio2005';
+        const githubProjectsContainer = document.getElementById('github-projects');
+        const repoCountElement = document.getElementById('repo-count');
+        const forkCountElement = document.getElementById('fork-count');
+        const starCountElement = document.getElementById('star-count');
+        
+        async function fetchGitHubProjects() {
+            try {
+                // Obtener repositorios
+                const response = await fetch(`https://api.github.com/users/${username}/repos`);
+                const repositories = await response.json();
+                
+                if (!Array.isArray(repositories)) {
+                    throw new Error('No se pudieron cargar los repositorios');
+                }
+                
+                // Limpiar contenedor y quitar spinner
+                githubProjectsContainer.innerHTML = '';
+                
+                // Actualizar estadísticas
+                repoCountElement.textContent = repositories.length;
+                
+                let totalForks = 0;
+                let totalStars = 0;
+                
+                // Mostrar repositorios
+                repositories.forEach(repo => {
+                    totalForks += repo.forks_count;
+                    totalStars += repo.stargazers_count;
+                    
+                    const repoCard = document.createElement('div');
+                    repoCard.className = 'project-card reveal';
+                    
+                    // Determinar la imagen del proyecto basada en el lenguaje principal
+                    let repoImage;
+                    switch(repo.language) {
+                        case 'HTML':
+                        case 'CSS':
+                            repoImage = 'https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
+                            break;
+                        case 'JavaScript':
+                            repoImage = 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
+                            break;
+                        case 'Python':
+                            repoImage = 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
+                            break;
+                        case 'Java':
+                            repoImage = 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
+                            break;
+                        default:
+                            repoImage = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
+                    }
+                    
+                    repoCard.innerHTML = `
+                        <div class="project-image">
+                            <img src="${repoImage}" alt="${repo.name}">
+                            <div class="project-overlay"></div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">${repo.name}</h3>
+                            <div class="project-tech">
+                                ${repo.language ? `<span class="tech-tag">${repo.language}</span>` : ''}
+                                <span class="tech-tag">GitHub</span>
+                                ${repo.topics && repo.topics.length ? repo.topics.slice(0, 2).map(topic => `<span class="tech-tag">${topic}</span>`).join('') : ''}
+                            </div>
+                            <p>${repo.description || 'Repositorio en GitHub'}</p>
+                            <div class="repo-stats">
+                                <span class="repo-stat"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+                                <span class="repo-stat"><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                                <span class="repo-stat"><i class="fas fa-calendar"></i> ${new Date(repo.created_at).toLocaleDateString()}</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="${repo.html_url}" target="_blank" class="project-link"><i class="fab fa-github"></i> Ver Repositorio</a>
+                                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Ver Demo</a>` : ''}
+                            </div>
+                        </div>
+                    `;
+                    
+                    githubProjectsContainer.appendChild(repoCard);
+                });
+                
+                // Actualizar contadores
+                forkCountElement.textContent = totalForks;
+                starCountElement.textContent = totalStars;
+                
+                // Iniciar animación de revelación para los nuevos elementos
+                const reveals = document.querySelectorAll('.reveal');
+                reveals.forEach(reveal => {
+                    if (isInViewport(reveal)) {
+                        reveal.classList.add('active');
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Error cargando repositorios:', error);
+                githubProjectsContainer.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>No se pudieron cargar los proyectos de GitHub. Por favor, intenta más tarde.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.bottom >= 0
+            );
+        }        // Cargar proyectos al cargar la página
+        window.addEventListener('load', fetchGitHubProjects);
+        
+        // Función para mejorar la visualización de certificados en dispositivos móviles
+        function setupCertificateImages() {
+            // Detectar si estamos en un dispositivo móvil
+            const isMobile = window.innerWidth <= 768;
+            
+            // Obtener todas las imágenes de certificados
+            const certificateImages = document.querySelectorAll('.project-image img');
+            
+            certificateImages.forEach(img => {
+                // Si la imagen es un PDF, intentar usar una imagen alternativa en dispositivos móviles
+                if (img.src.includes('.pdf') && isMobile) {
+                    // Buscar el atributo onerror para extraer la URL alternativa
+                    const imgElement = img.outerHTML;
+                    if (imgElement.includes('onerror')) {
+                        try {
+                            const altSrc = imgElement.split("this.src='")[1].split("'")[0];
+                            if (altSrc) {
+                                img.src = altSrc;
+                            }
+                        } catch (e) {
+                            console.error('Error al procesar imagen alternativa:', e);
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Ejecutar al cargar y al cambiar el tamaño de la ventana
+        window.addEventListener('load', setupCertificateImages);
+        window.addEventListener('resize', setupCertificateImages);
+        
+        // Implementación del cursor personalizado de Python
+        const cursor = document.getElementById("custom-cursor");
+        
+        // Seguimiento del mouse con el cursor personalizado
+        document.addEventListener("mousemove", (e) => {
+            requestAnimationFrame(() => {
+                // Ajuste para centrar el logo de Python en el puntero
+                cursor.style.top = (e.clientY - 20) + "px";
+                cursor.style.left = (e.clientX - 20) + "px";
+            });
+        });
+        
+        // Hacer que el cursor esté disponible desde el inicio
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mostrar el cursor en el centro inicialmente
+            cursor.style.top = (window.innerHeight / 2) + "px";
+            cursor.style.left = (window.innerWidth / 2) + "px";
+            
+            // Efectos especiales para el cursor al pasar por encima de elementos interactivos
+            const interactiveElements = document.querySelectorAll('a, button, input[type="submit"], .certificate-card');
+            
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(1.2) rotate(10deg)';
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+        });
+        
+        // Efectos al hacer clic
+        document.addEventListener("mousedown", () => {
+            cursor.style.transform = "scale(0.9)";
+        });
+        
+        document.addEventListener("mouseup", () => {
+            cursor.style.transform = "scale(1)";
+        });
+        
+        // Funcionalidad mejorada para la sección de contacto de WhatsApp
+        document.addEventListener('DOMContentLoaded', function() {
+            // Añadir animación al botón de WhatsApp
+            const whatsappButton = document.querySelector('.whatsapp-button');
+            if (whatsappButton) {
+                // Agregar un efecto de pulso al botón de WhatsApp
+                setInterval(() => {
+                    whatsappButton.classList.add('pulse');
+                    setTimeout(() => {
+                        whatsappButton.classList.remove('pulse');
+                    }, 1000);
+                }, 3000);
+                
+                // Agregar seguimiento de eventos de clic (en un entorno real podría ser Analytics)
+                whatsappButton.addEventListener('click', function() {
+                    console.log('Contacto por WhatsApp iniciado');
+                    // Aquí podría ir código para tracking de eventos
+                });
+            }
+            
+            // Añadir enlaces directos para contacto telefónico con WhatsApp en la sección de info
+            const phoneLink = document.querySelector('.contact-item a[href^="tel:"]');
+            if (phoneLink) {
+                const phoneNumber = phoneLink.getAttribute('href').replace('tel:', '');
+                const whatsappLink = document.createElement('a');
+                whatsappLink.href = `https://wa.me/${phoneNumber.replace(/\s+/g, '')}`;
+                whatsappLink.target = '_blank';
+                whatsappLink.rel = 'noopener noreferrer';
+                whatsappLink.className = 'whatsapp-link';
+                whatsappLink.innerHTML = '<i class="fab fa-whatsapp"></i> Contactar por WhatsApp';
+                
+                const contactInfo = document.querySelector('.contact-info');
+                if (contactInfo) {
+                    const whatsappContainer = document.createElement('div');
+                    whatsappContainer.className = 'contact-item reveal';
+                    whatsappContainer.innerHTML = `
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <div>
+                                ${whatsappLink.outerHTML}
+                            </div>
+                        </div>
+                    `;
+                    
+                    contactInfo.appendChild(whatsappContainer);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

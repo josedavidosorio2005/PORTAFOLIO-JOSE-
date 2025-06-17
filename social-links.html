@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enlaces Sociales - José David Osorio</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0D1117, #161B22);
+      color: white;
+    }
+    
+    h1 {
+      margin-bottom: 30px;
+    }
+    
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .link {
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .linkedin {
+      background: linear-gradient(45deg, #0077B5, #00A0DC);
+    }
+    
+    .instagram {
+      background: linear-gradient(45deg, #833AB4, #FD1D1D, #FCAF45);
+    }
+    
+    .back {
+      margin-top: 40px;
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <h1>Redes Sociales de José David Osorio</h1>
+  
+  <div class="links">
+    <a href="https://www.linkedin.com/in/jose-david-osorio-gallego-a07766354" target="_blank" class="link linkedin">
+      <i class="fab fa-linkedin"></i>
+      LinkedIn
+    </a>
+    <a href="https://www.instagram.com/joseosorioeur" target="_blank" class="link instagram">
+      <i class="fab fa-instagram"></i>
+      Instagram
+    </a>
+  </div>
+  
+  <a href="index.html" class="back">Volver al Portfolio</a>
+  
+  <script>
+    // Script simple para asegurar que los enlaces funcionen
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.link');
+      
+      links.forEach(link => {
+        link.addEventListener('click', function() {
+          const url = this.getAttribute('href');
+          window.open(url, '_blank');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
