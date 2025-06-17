@@ -4,10 +4,17 @@
   "description": "Portfolio web profesional de José David Osorio Gallego",
   "homepage": "https://josedavidosorio2005.github.io/PORTAFOLIO-JOSE-/",
   "scripts": {
-    "deploy": "gh-pages -d ."
+    "deploy": "gh-pages -d .",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:vercel": "vercel --prod",
+    "deploy:all": "npm run deploy && npm run deploy:netlify && npm run deploy:vercel"
   },
   "dependencies": {
     "gh-pages": "^6.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.11.1",
+    "vercel": "^33.0.1"
   },
   "repository": {
     "type": "git",

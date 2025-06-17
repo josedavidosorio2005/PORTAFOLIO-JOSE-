@@ -1,0 +1,13 @@
+Curso: Fundamentos de la Ciberseguridad Empresarial
+Platzi | Aprobado: Julio 2025
+
+Duración: 24 horas teórico-prácticas.
+
+Enfoque: Principios fundamentales de la ciberseguridad aplicada a entornos empresariales, incluyendo gestión de riesgos, controles de seguridad y cumplimiento normativo.
+
+Certificación: Código: 7a9b2c34-5d6e-8f90-1a2b-3c4d5e6f7a8b.
+
+Emitido para: José David Osorio Gallego
+
+Este documento certifica que José David Osorio Gallego ha completado satisfactoriamente el curso
+"Fundamentos de la Ciberseguridad Empresarial" en Platzi.
