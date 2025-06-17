@@ -639,8 +639,7 @@
             transform: translateY(-6px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
-        
-        .highlight-card::before {
+          .highlight-card::before {
             content: "Nuevo";
             position: absolute;
             top: -10px;
@@ -652,8 +651,27 @@
             padding: 5px 10px;
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            border-radius: 3px;
             z-index: 1;
+        }
+        
+        /* Mejora de certificados para mobile */
+        .certificate-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .certificate-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+            font-size: 0.8rem;
+            z-index: 2;
         }
         
         @keyframes borderPulse {
@@ -1102,15 +1120,23 @@
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* Media queries para responsividad */
+        }        /* Media queries para responsividad */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
             .contact-container {
                 grid-template-columns: 1fr;
+            }
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .skills-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .github-stats {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -1169,6 +1195,56 @@
             .hamburger.active span:last-child {
                 transform: rotate(-45deg) translate(5px, -5px);
             }
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .education-card {
+                flex-direction: column;
+            }
+            .education-image {
+                width: 100%;
+                height: 200px;
+                border-radius: 10px 10px 0 0;
+            }
+            .project-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .project-link {
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem;
+                background-color: rgba(77, 97, 252, 0.1);
+                border-radius: 5px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .github-stats {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+            }
+            .project-tech {
+                flex-wrap: wrap;
+            }
+            .tech-tag {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.6rem;
+            }
+            .project-content {
+                padding: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1180,6 +1256,32 @@
             }
             .cta-buttons {
                 flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .section {
+                padding: 3rem 5%;
+            }
+            .project-card {
+                min-height: auto;
+            }
+        }
+        
+        /* Media queries para dispositivos muy pequeños */
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .typing {
+                font-size: 1rem;
+            }
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.5rem;
             }
         }
 
@@ -1717,11 +1819,11 @@
 
     <!-- Sección de Certificaciones y Proyectos -->    <section id="certificates" class="section">
         <h2 class="section-title reveal">Mis Certificaciones Principales</h2>
-        <div class="projects-container">
-            <div class="project-card reveal">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación Ciberseguridad">
+        <div class="projects-container">            <div class="project-card reveal">
+                <div class="project-image certificate-image">
+                    <img src="certificados artistcode/implementacion y optimisacion de maquinas virtuales para profecionales de it .jpg" alt="Certificación Ciberseguridad" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';">
                     <div class="project-overlay"></div>
+                    <span class="certificate-badge">CertiPro</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Certificación en Implementación y Optimización de Máquinas Virtuales</h3>
@@ -1733,14 +1835,14 @@
                     <p>Implementación y optimización de máquinas virtuales para profesionales de IT. Certificado emitido el 6 de marzo de 2025.</p>
                     <div class="project-links">
                         <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados artistcode/implementacion y optimisacion de maquinas virtuales para profecionales de it .jpg" target="_blank" class="project-link"><i class="fas fa-file-image"></i> Ver Imagen</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación OSINT">
+            </div>            <div class="project-card reveal">
+                <div class="project-image certificate-image">
+                    <img src="certificados artistcode/osint geolocalisacion.png" alt="Certificación OSINT" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';">
                     <div class="project-overlay"></div>
+                    <span class="certificate-badge">OSINT</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Certificación en OSINT Geolocalización</h3>
@@ -1752,14 +1854,14 @@
                     <p>Curso avanzado en técnicas de geolocalización con OSINT (Open Source Intelligence). Certificado emitido el 10 de junio de 2025.</p>
                     <div class="project-links">
                         <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados artistcode/osint geolocalisacion.png" target="_blank" class="project-link"><i class="fas fa-file-image"></i> Ver Imagen</a>
                     </div>
                 </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificación Python">
+            </div><div class="project-card reveal">
+                <div class="project-image certificate-image">
+                    <img src="certificados/BronzeCertificate.pdf" alt="Certificación Python" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';">
                     <div class="project-overlay"></div>
+                    <span class="certificate-badge">Bronze Level</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Python Certification Course Junior Level</h3>
@@ -1770,7 +1872,8 @@
                     </div>
                     <p>Certificación de nivel junior en Python que valida conocimientos fundamentales en programación. Diciembre 2024.</p>
                     <div class="project-links">
-                        <a href="#" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados/BronzeCertificate.pdf" target="_blank" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
+                        <a href="certificados/BronzeCertificate.pdf" download class="project-link"><i class="fas fa-file-pdf"></i> Descargar PDF</a>
                     </div>
                 </div>
             </div>
@@ -1790,11 +1893,11 @@
                         <a href="https://platzi.com/p/jose.osoriog/curso/10928-course/diploma/detalle/" target="_blank" class="project-link"><i class="fas fa-certificate"></i> Ver Credencial</a>
                     </div>
                 </div>
-            </div>
-              <div class="project-card reveal highlight-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1591189327912-a6d33a8e5570?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ciberseguridad para Gerentes y Directivos">
+            </div>              <div class="project-card reveal highlight-card">
+                <div class="project-image certificate-image">
+                    <img src="certificados platzi/diploma-ciberseguridad-empresas (2).pdf" alt="Ciberseguridad para Gerentes y Directivos" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1591189327912-a6d33a8e5570?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';">
                     <div class="project-overlay"></div>
+                    <span class="certificate-badge">Platzi Certified</span>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Ciberseguridad para Gerentes y Directivos Técnicos</h3>
@@ -2299,6 +2402,37 @@
             );
         }        // Cargar proyectos al cargar la página
         window.addEventListener('load', fetchGitHubProjects);
+        
+        // Función para mejorar la visualización de certificados en dispositivos móviles
+        function setupCertificateImages() {
+            // Detectar si estamos en un dispositivo móvil
+            const isMobile = window.innerWidth <= 768;
+            
+            // Obtener todas las imágenes de certificados
+            const certificateImages = document.querySelectorAll('.project-image img');
+            
+            certificateImages.forEach(img => {
+                // Si la imagen es un PDF, intentar usar una imagen alternativa en dispositivos móviles
+                if (img.src.includes('.pdf') && isMobile) {
+                    // Buscar el atributo onerror para extraer la URL alternativa
+                    const imgElement = img.outerHTML;
+                    if (imgElement.includes('onerror')) {
+                        try {
+                            const altSrc = imgElement.split("this.src='")[1].split("'")[0];
+                            if (altSrc) {
+                                img.src = altSrc;
+                            }
+                        } catch (e) {
+                            console.error('Error al procesar imagen alternativa:', e);
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Ejecutar al cargar y al cambiar el tamaño de la ventana
+        window.addEventListener('load', setupCertificateImages);
+        window.addEventListener('resize', setupCertificateImages);
         
         // Implementación del cursor personalizado de Python
         const cursor = document.getElementById("custom-cursor");
